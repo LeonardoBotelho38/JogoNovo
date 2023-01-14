@@ -1,0 +1,80 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+}
+
+
+.tabuleiro{
+    
+    
+    height: 550px;
+    width: 500px;
+    background-color: rgb(136, 177, 132);
+    left: 10%;
+    top: 20%;
+   
+    
+    
+}
+
+.elemento{
+    border: 3px solid black;
+    margin: 1px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    position: relative;
+    left: 15px;
+    top: 18px;
+}
+
+.bordaDireita{
+    border-right: 3px solid rgb(250, 250, 250);
+    
+}
+
+.bordaEsquerda{
+    border-left: 3px solid rgb(250, 250, 250);
+}
+
+.bordaDeBaixo{
+    border-bottom: 3px solid rgb(250, 250, 250);
+}
+
+.bordaDeCima{
+    border-top: 3px solid rgb(250, 250, 250);
+}
+
+.bordaDireitaVerde{
+    border-right: 3px solid rgb(30, 255, 0);;
+}
+
+.bordaEsquerdaVerde{
+    border-left: 3px solid rgb(30, 255, 0);;
+}
+
+.bordaDeBaixoVerde{
+    border-bottom: 3px solid rgb(30, 255, 0);;
+}
+
+.bordaDeCimaVerde{
+    border-top: 3px solid rgb(30, 255, 0);
+}
+
+.bordaDireitaVermelho{
+    border-right: 3px solid red;;
+}
+
+.bordaEsquerdavermelho{
+    border-left: 3px solid red;;
+}
+
+.bordaDeBaixoVermelho{
+    border-bottom: 3px solid red;;
+}
+
+.bordaDeCimaVermelho{
+    border-top: 3px solid red;
+}

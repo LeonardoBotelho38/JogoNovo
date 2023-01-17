@@ -28,13 +28,15 @@ const pergunta = document.querySelector('.pergunta')
 const palavrasQueJaForamUsadas = []
 const resposta = document.querySelector('#resposta')
 const btnResponder = document.querySelector('#responder')
+
+let placar = 0
 let palavraSorteada
 
 criaGradeDeElementos();
 
 gradeElementos.forEach(el => el.addEventListener("click", selecionaElemento))
 
-btnResponder.addEventListener('click', acertouAPergunta)
+
 
 
 function criaGradeDeElementos() {
@@ -48,23 +50,52 @@ function criaGradeDeElementos() {
     }
 }
 
+
 function selecionaElemento(event){
     const elementoQuadrado = event.target 
     elementoQuadrado.classList.add('elementoSelecionado')
     sorteiaPalavras()
     
-}  
+    console.log(palavraSorteada)
+    
+    btnResponder.addEventListener('click', acertouOuErrou)
+    
+    function acertouOuErrou(){
+    if(elementoQuadrado.classList.contains('acertou')){
+        return
+    }
+    if(resposta.value.toLowerCase() === palavraSorteada.portugues)
+    {   elementoQuadrado.classList.remove('elementoSelecionado')
+        elementoQuadrado.classList.add('acertou')
+        palavrasQueJaForamUsadas.push(palavraSorteada)
+        pergunta.innerHTML ='ACERTOU, PARABÈNS!'
+        marcaPonto()
+    } else if(!elementoQuadrado.classList.contains('acertou')){
+        pergunta.innerHTML = ` ERROU! RESPOSTA: ${palavraSorteada.portugues}`
+        elementoQuadrado.classList.remove('elementoSelecionado')
+        elementoQuadrado.classList.remove('acertou')
+        elementoQuadrado.classList.add('errou')
 
-function acertouAPergunta(){
-        
-    if(palavraSorteada.portugues.toLowerCase().includes(resposta.value.toLowerCase())){
-        pergunta.innerHTML ='ACERTOU MISERAVI!'}
-        
-}   
-  
+    }
+    }
+    
+    
+    function marcaPonto(){
+        placar ++  
+    if(elementoQuadrado.classList.contains('acertou'))
+    document.querySelector('.placar').textContent = placar;
+    
+
+console.log(placar)
+console.log(elementoQuadrado.classList)
+
+}
+   
+}  
+    
 
 function sorteiaPalavras() {
-   if(palavrasEmIngles.length === 0){
+    if(palavrasEmIngles.length === 0){
     pergunta.innerHTML = "Todas as palavras foram usadas!"
     return
    }
@@ -79,8 +110,6 @@ function sorteiaPalavras() {
     palavrasEmIngles.splice(numeroIndex, 1)
 
 }
-
-
 
 
 

@@ -2017,7 +2017,9 @@ function criaGradeDeElementos() {
         const elemento = document.createElement("div");
         elemento.classList.add("elemento");
         elemento.id = "elemento" + i;
-
+        const img = document.createElement("img")
+        img.src = "img/interrogacao.png";
+        elemento.appendChild(img)
         tabuleiro.appendChild(elemento);
         gradeElementos.push(elemento);
     }
@@ -2037,18 +2039,18 @@ function selecionaElemento(event){
     if(elementoQuadrado.classList.contains('acertou')){
         return
     }
-    if(resposta.value.toLowerCase().trim() === palavraSorteada.portugues)
+    if(resposta.value.toLowerCase().trim() === palavraSorteada.portugues && !elementoQuadrado.classList.contains('errou'))
     {   elementoQuadrado.classList.remove('elementoSelecionado')
         elementoQuadrado.classList.add('acertou')
         palavrasQueJaForamUsadas.push(palavraSorteada)
         pergunta.innerHTML ='ACERTOU, PARABÈNS!'
         marcaPonto()
     } else if(!elementoQuadrado.classList.contains('acertou')){
-        pergunta.innerHTML = ` ERROU! RESPOSTA: ${palavraSorteada.portugues}`
+        pergunta.innerHTML = ` ERROU! <br>RESPOSTA: ${palavraSorteada.portugues}`
         elementoQuadrado.classList.remove('elementoSelecionado')
         elementoQuadrado.classList.remove('acertou')
         elementoQuadrado.classList.add('errou')
-
+        console.log(elementoQuadrado)
     }
     }
     

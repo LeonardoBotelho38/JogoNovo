@@ -1,33 +1,74 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+
+
 body{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;  
+    flex-direction:column;
+    align-items: center;
+    height: 100vh;
+    position: absolute;
+}
+
+h1{
+    display: flex;
+    align-items: flex-start;
+}
+
+h3{
+    margin: 5px;
+}
+
+.caixaPlacar{
+    align-items: center;
+   display: flex;
+   
+   
+}
+
+.caixaPergunta{
+    position: relative;
+    bottom: 350px;
+    
+    
 }
 
 
 .tabuleiro{
     
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 100vw;
+  overflow-x: auto;
     
-    height: 550px;
-    width: 500px;
-    background-color: rgb(136, 177, 132);
-    left: 10%;
-    top: 20%;
    
     
     
 }
 
+
+img{
+    width: 60px;
+    height: 60px;
+    
+}
+
 .elemento{
     border: 3px solid black;
-    margin: 1px;
-    width: 40px;
-    height: 40px;
-    display: inline-block;
-    position: relative;
-    left: 15px;
-    top: 18px;
+    margin: 2px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    flex-direction:row;
+     
+     
 }
 
 .elementoSelecionado{
@@ -38,9 +79,10 @@ body{
 
 
 .acertou{
-    background-color: rgb(30, 255, 0);
+    border:solid 3px rgb(0, 255, 81);
 }
 
 .errou{
-    background-color: red;
+    border:solid 3px red;
+    
 }

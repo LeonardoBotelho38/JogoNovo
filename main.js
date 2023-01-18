@@ -2026,9 +2026,13 @@ function criaGradeDeElementos() {
 }
 
 
+
 function selecionaElemento(event){
     const elementoQuadrado = event.target 
     elementoQuadrado.classList.add('elementoSelecionado')
+    if(elementoQuadrado.classList.contains('acertou')||elementoQuadrado.classList.contains('errou')){
+        return
+    }
     sorteiaPalavras()
     
     console.log(palavraSorteada)
@@ -2050,7 +2054,7 @@ function selecionaElemento(event){
         elementoQuadrado.classList.remove('elementoSelecionado')
         elementoQuadrado.classList.remove('acertou')
         elementoQuadrado.classList.add('errou')
-        console.log(elementoQuadrado)
+        
     }
     }
     

@@ -11,7 +11,10 @@ body{
     flex-direction:column;
     align-items: center;
     height: 100vh;
+    width: 100vw;
     position: absolute;
+   
+    
 }
 
 h1{
@@ -21,20 +24,29 @@ h1{
 
 h3{
     margin: 5px;
+    position: relative;
+    top: 150px;
 }
 
 .caixaPlacar{
     align-items: center;
    display: flex;
-   
+   flex-direction: column;
+   position: relative;
+    right: 250px;
    
 }
 
 .caixaPergunta{
     position: relative;
-    bottom: 350px;
+    bottom: 50px;
+    top: 150px;
     
-    
+}
+
+.inputResponder{
+    position: relative;
+    top:350px;
 }
 
 
@@ -44,10 +56,10 @@ h3{
     flex-direction:row;
     justify-content: center;
     align-items: center;
-    height: 500px;
-    width: 100vw;
+    position: relative;
+    width: 90vw;
   overflow-x: auto;
-    
+    top: 300px;
    
     
     
@@ -61,19 +73,19 @@ img{
 }
 
 .elemento{
-    border: 3px solid black;
+    
     margin: 2px;
     width: 60px;
     height: 60px;
     display: flex;
     flex-direction:row;
-     
+    
      
 }
 
 .elementoSelecionado{
-    background-color: rgba(153, 148, 148, 0.559);
-    border: 3px solid rgb(250, 250, 250);
+   border: 3px solid blue;
+   
 }
 
 

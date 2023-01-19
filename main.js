@@ -2001,7 +2001,8 @@ const pergunta = document.querySelector('.pergunta')
 const palavrasQueJaForamUsadas = []
 let resposta = document.querySelector('#resposta')
 const btnResponder = document.querySelector('#responder')
-
+const btnDireita = document.querySelector('.btnDireita')
+const btnEsquerda = document.querySelector('.btnEsquerda')
 let placar = 0
 let palavraSorteada
 
@@ -2033,6 +2034,7 @@ function selecionaElemento(event){
     if(elementoQuadrado.classList.contains('acertou')||elementoQuadrado.classList.contains('errou')){
         return
     }
+ 
     sorteiaPalavras()
     
     console.log(palavraSorteada)
@@ -2040,9 +2042,9 @@ function selecionaElemento(event){
     btnResponder.addEventListener('click', acertouOuErrou)
     
     function acertouOuErrou(){
-    if(elementoQuadrado.classList.contains('acertou')){
+    if(elementoQuadrado.classList.contains('acertou'))
         return
-    }
+    
     if(resposta.value.toLowerCase().trim() === palavraSorteada.portugues && !elementoQuadrado.classList.contains('errou'))
     {   elementoQuadrado.classList.remove('elementoSelecionado')
         elementoQuadrado.classList.add('acertou')
@@ -2070,8 +2072,9 @@ console.log(elementoQuadrado.classList)
 
 }
    resposta.value = ""
-}  
-    
+
+
+}    
 
 function sorteiaPalavras() {
     if(palavrasEmIngles.length === 0){
@@ -2091,6 +2094,48 @@ function sorteiaPalavras() {
 }
 
 
+btnEsquerda.addEventListener('click', moverParaEsquerda)
+btnDireita.addEventListener('click', moverParaDireita)
+   
+
+let idIntervalo;
 
 
+function moverParaDireita(){
+    if(tabuleiro.scrollLeft + 150 >= 5000)return
+    //5000 é o valor da largura do scrollbar
+    let posicaoAtual = tabuleiro.scrollLeft
+    let novaPosicao = posicaoAtual + 150
+     idIntervalo = requestAnimationFrame(frame)
+    function frame(){
+        if(tabuleiro.scrollLeft >= novaPosicao) {
+            cancelAnimationFrame(idIntervalo)
+            return
+        }
+        tabuleiro.scrollTo(tabuleiro.scrollLeft + 5, 0)
+        idIntervalo = requestAnimationFrame(frame)
+        console.log(tabuleiro.scrollLeft)
+    }
+}
 
+
+function moverParaEsquerda(){
+    if(tabuleiro.scrollLeft - 150 < 0) {
+        cancelAnimationFrame(idIntervalo)
+        return
+    }
+    let posicaoAtual = tabuleiro.scrollLeft
+    idIntervalo = requestAnimationFrame(frame)
+    function frame(){
+        let novaPosicao = posicaoAtual - 150
+        if(tabuleiro.scrollLeft <= novaPosicao) {
+            cancelAnimationFrame(idIntervalo)
+            return
+        }
+        tabuleiro.scrollTo(tabuleiro.scrollLeft - 5, 0)
+        idIntervalo = requestAnimationFrame(frame)
+    }
+}
+
+
+  

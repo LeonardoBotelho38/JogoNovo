@@ -2014,74 +2014,76 @@ gradeElementos.forEach(el => el.addEventListener("click", selecionaElemento))
 
 
 function criaGradeDeElementos() {
-    for (let i = 1; i <= 100; i++) {
-        const elemento = document.createElement("div");
-        elemento.classList.add("elemento");
-        elemento.id = "elemento" + i;
+    for (let i = 1; i <= 1000; i++) {
+        const elemento = document.createElement("div")
+        elemento.classList.add("elemento")
+        elemento.id = "elemento" + i
         const img = document.createElement("img")
-        img.src = "img/interrogacao.png";
+        img.src = "img/interrogacao.png"
         elemento.appendChild(img)
-        tabuleiro.appendChild(elemento);
-        gradeElementos.push(elemento);
+        tabuleiro.appendChild(elemento)
+        gradeElementos.push(elemento)
     }
 }
+let elementoSelecionado = false
 
-
-
+//FIXME: CORRIGIR MULTIPLO SELECIONAMENTO DE ELEMENTOS
 function selecionaElemento(event){
+    if (elementoSelecionado)return
     const elementoQuadrado = event.target 
-    elementoQuadrado.classList.add('elementoSelecionado')
+    if(elementoQuadrado.classList.contains('elementoSelecionado'))return
     if(elementoQuadrado.classList.contains('acertou')||elementoQuadrado.classList.contains('errou')){
         return
     }
- 
-    sorteiaPalavras()
+    elementoQuadrado.classList.add('elementoSelecionado')
+    elementoSelecionado = true
     
-    console.log(palavraSorteada)
+    sorteiaPalavras()
+    btnResponder.removeEventListener('click', acertouOuErrou)
+    btnResponder.addEventListener('click', acertouOuErrou)
     
     btnResponder.addEventListener('click', acertouOuErrou)
     
     function acertouOuErrou(){
-    if(elementoQuadrado.classList.contains('acertou'))
+        if(elementoQuadrado.classList.contains('acertou'))
         return
     
-    if(resposta.value.toLowerCase().trim() === palavraSorteada.portugues && !elementoQuadrado.classList.contains('errou'))
-    {   elementoQuadrado.classList.remove('elementoSelecionado')
-        elementoQuadrado.classList.add('acertou')
-        palavrasQueJaForamUsadas.push(palavraSorteada)
-        pergunta.innerHTML ='ACERTOU, PARABÈNS!'
+        if(resposta.value.toLowerCase().trim() === palavraSorteada.portugues && !elementoQuadrado.classList.contains('errou'))
+            {   elementoQuadrado.classList.remove('elementoSelecionado')
+            elementoQuadrado.classList.add('acertou')
+            palavrasQueJaForamUsadas.push(palavraSorteada)
+            pergunta.innerHTML ='ACERTOU, PARABÈNS!'
         marcaPonto()
-    } else if(!elementoQuadrado.classList.contains('acertou')){
-        pergunta.innerHTML = ` ERROU! <br>RESPOSTA: ${palavraSorteada.portugues}`
-        elementoQuadrado.classList.remove('elementoSelecionado')
-        elementoQuadrado.classList.remove('acertou')
-        elementoQuadrado.classList.add('errou')
-        
-    }
+        } else if(!elementoQuadrado.classList.contains('acertou')){
+            pergunta.innerHTML = ` ERROU! <br>RESPOSTA: ${palavraSorteada.portugues}`
+            elementoQuadrado.classList.remove('elementoSelecionado')
+            elementoQuadrado.classList.remove('acertou')
+            elementoQuadrado.classList.add('errou')
+            elementoSelecionado = false
+        }
     }
     
     
     function marcaPonto(){
         placar ++  
-    if(elementoQuadrado.classList.contains('acertou'))
-    document.querySelector('.placar').textContent = placar;
+        if(elementoQuadrado.classList.contains('acertou'))
+        document.querySelector('.placar').textContent = placar;
     
 
-console.log(placar)
-console.log(elementoQuadrado.classList)
+
 
 }
-   resposta.value = ""
+resposta.value = ""
 
 
 }    
 
 function sorteiaPalavras() {
     if(palavrasEmIngles.length === 0){
-    pergunta.innerHTML = "Todas as palavras foram usadas!"
-    return
-   }
-   
+        pergunta.innerHTML = "Todas as palavras foram usadas!"
+        return
+}
+
     palavraSorteada = palavrasEmIngles[Math.floor(Math.random() * palavrasEmIngles.length)]
     
 
@@ -2096,17 +2098,17 @@ function sorteiaPalavras() {
 
 btnEsquerda.addEventListener('click', moverParaEsquerda)
 btnDireita.addEventListener('click', moverParaDireita)
-   
+
 
 let idIntervalo;
 
 
 function moverParaDireita(){
-    if(tabuleiro.scrollLeft + 150 >= 5000)return
-    //5000 é o valor da largura do scrollbar
-    let posicaoAtual = tabuleiro.scrollLeft
-    let novaPosicao = posicaoAtual + 150
-     idIntervalo = requestAnimationFrame(frame)
+    if(tabuleiro.scrollLeft + 150 >= 51800)return
+        //5000 é o valor da largura do scrollbar
+        let posicaoAtual = tabuleiro.scrollLeft
+        let novaPosicao = posicaoAtual + 150
+        idIntervalo = requestAnimationFrame(frame)
     function frame(){
         if(tabuleiro.scrollLeft >= novaPosicao) {
             cancelAnimationFrame(idIntervalo)
@@ -2114,8 +2116,9 @@ function moverParaDireita(){
         }
         tabuleiro.scrollTo(tabuleiro.scrollLeft + 5, 0)
         idIntervalo = requestAnimationFrame(frame)
-        console.log(tabuleiro.scrollLeft)
+        
     }
+    
 }
 
 
@@ -2138,4 +2141,3 @@ function moverParaEsquerda(){
 }
 
 
-  

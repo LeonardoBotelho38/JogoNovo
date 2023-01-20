@@ -13,7 +13,7 @@ body{
     height: 100vh;
     width: 100vw;
     position: absolute;
-   
+
     
 }
 
@@ -43,12 +43,12 @@ h3{
 
 .caixaPlacar{
     align-items: center;
-   display: flex;
-   flex-direction: column;
-   position: relative;
+    display: flex;
+    flex-direction: column;
+    position: relative;
     right: 38%;
     top: 80px;
-   
+
 }
 
 .caixaPergunta{
@@ -72,9 +72,9 @@ h3{
     align-items: center;
     position: relative;
     width: 90vw;
-  overflow-x: scroll;
+    overflow-x: scroll;
     top: 200px;
-   
+
     
     
 }
@@ -94,17 +94,17 @@ img{
     display: flex;
     flex-direction:row;
     
-     
+    
 }
 
 img:hover{
-   opacity: 0.7;
+opacity: 0.7;
 }
 
 .elementoSelecionado{
-   border: 5px solid blue;
-   
-   
+border: 5px solid blue;
+
+
 }
 
 

@@ -2027,7 +2027,7 @@ function criaGradeDeElementos() {
 }
 let elementoSelecionado = false
 
-//FIXME: CORRIGIR MULTIPLO SELECIONAMENTO DE ELEMENTOS
+
 function selecionaElemento(event){
     if (elementoSelecionado)return
     const elementoQuadrado = event.target 
@@ -2052,8 +2052,9 @@ function selecionaElemento(event){
             {   elementoQuadrado.classList.remove('elementoSelecionado')
             elementoQuadrado.classList.add('acertou')
             palavrasQueJaForamUsadas.push(palavraSorteada)
-            pergunta.innerHTML ='ACERTOU, PARABÈNS!'
+            pergunta.innerHTML ='ACERTOU, PARABÉNS!'
         marcaPonto()
+        elementoSelecionado = false
         } else if(!elementoQuadrado.classList.contains('acertou')){
             pergunta.innerHTML = ` ERROU! <br>RESPOSTA: ${palavraSorteada.portugues}`
             elementoQuadrado.classList.remove('elementoSelecionado')
@@ -2105,7 +2106,7 @@ let idIntervalo;
 
 function moverParaDireita(){
     if(tabuleiro.scrollLeft + 150 >= 51800)return
-        //5000 é o valor da largura do scrollbar
+        //51800 é o valor da largura do scrollbar
         let posicaoAtual = tabuleiro.scrollLeft
         let novaPosicao = posicaoAtual + 150
         idIntervalo = requestAnimationFrame(frame)

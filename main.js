@@ -1672,7 +1672,7 @@ const palavrasEmIngles =   [ {'ingles': 'the', 'portugues':'o, a, os, as'},
 
 {'ingles': 'gun', 'portugues':'arma'},
 
-{'ingles': 'rose', 'portugues':'rosa, levantado'},
+{'ingles': 'rose', 'portugues':'rosa'},
 
 {'ingles': 'allow', 'portugues':'permitir'},
 

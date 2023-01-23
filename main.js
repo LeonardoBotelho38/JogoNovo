@@ -2005,6 +2005,10 @@ const btnDireita = document.querySelector('.btnDireita')
 const btnEsquerda = document.querySelector('.btnEsquerda')
 let placar = 0
 let palavraSorteada
+const musicaAcertou = document.querySelector('#musicaAcertou')
+const musicaErrou = document.querySelector('#musicaErrou')
+const musicaBtn = document.querySelector('#musicaBtn')
+const caixaDoPlacar = document.querySelector('.caixaPlacar')
 
 criaGradeDeElementos();
 
@@ -2044,6 +2048,8 @@ function selecionaElemento(event){
     
     btnResponder.addEventListener('click', acertouOuErrou)
     
+    
+    
     function acertouOuErrou(){
         if(elementoQuadrado.classList.contains('acertou'))
         return
@@ -2052,16 +2058,21 @@ function selecionaElemento(event){
             {   elementoQuadrado.classList.remove('elementoSelecionado')
             elementoQuadrado.classList.add('acertou')
             palavrasQueJaForamUsadas.push(palavraSorteada)
-            pergunta.innerHTML ='ACERTOU, PARABÉNS!'
-        marcaPonto()
+            pergunta.innerHTML ='ACERTOU, PARABÉNS!<br>	&#128516;&#128077;'
+            
+            marcaPonto()
         elementoSelecionado = false
-        } else if(!elementoQuadrado.classList.contains('acertou')){
-            pergunta.innerHTML = ` ERROU! <br>RESPOSTA: ${palavraSorteada.portugues}`
+        }   if(resposta.value.toLowerCase().trim() !== palavraSorteada.portugues && !elementoQuadrado.classList.contains('errou')){
+            pergunta.innerHTML = ` ERROU! &#128553; <br>RESPOSTA: ${palavraSorteada.portugues}`
+            
             elementoQuadrado.classList.remove('elementoSelecionado')
             elementoQuadrado.classList.remove('acertou')
             elementoQuadrado.classList.add('errou')
             elementoSelecionado = false
+            musicaErrou.volume = 0.2
+            musicaErrou.play()
         }
+        
     }
     
     
@@ -2069,8 +2080,13 @@ function selecionaElemento(event){
         placar ++  
         if(elementoQuadrado.classList.contains('acertou'))
         document.querySelector('.placar').textContent = placar;
-    
-
+        musicaAcertou.volume = 0.5
+        musicaAcertou.play()
+        caixaDoPlacar.classList.add('animaPlacar')
+        setTimeout(function(){
+            caixaDoPlacar.classList.remove('animaPlacar')
+        }, 1000);
+        
 
 
 }
@@ -2119,6 +2135,8 @@ function moverParaDireita(){
         idIntervalo = requestAnimationFrame(frame)
         
     }
+    musicaBtn.volume = 0.5
+    musicaBtn.play()
     
 }
 
@@ -2139,6 +2157,8 @@ function moverParaEsquerda(){
         tabuleiro.scrollTo(tabuleiro.scrollLeft - 5, 0)
         idIntervalo = requestAnimationFrame(frame)
     }
+    musicaBtn.volume = 0.5
+    musicaBtn.play()
 }
 
 

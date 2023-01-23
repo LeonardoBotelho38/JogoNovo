@@ -4,10 +4,11 @@
     box-sizing: border-box;
     padding: 0;
     font-family: 'Fredoka One', cursive;
+    
 }
 .bolhas{
     display: inline-block;
-    position: relative;
+    position: absolute;
     
 }
 .bolhas span{
@@ -19,8 +20,7 @@
     box-shadow: 0 0 0 10px #ff150044,
     0 0  40px #9d2101,
     0 0  80px #de0303;
-    
-    
+    position: relative;
     animation: animar calc(100s / var(--i)) linear infinite;
 }
 
@@ -38,9 +38,11 @@ body{
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background-color: #0c0c19;
+    background-color: #0c0c19; 
     overflow: hidden;
     position: absolute;
+    
+    
 }
 
 h1{
@@ -60,9 +62,10 @@ h3{
 
 .btnDireita{
     position: relative;
-    top: 207px;
+    top: 220px;
     left: 35%;
-    width: 25%;
+    width: 90px;
+    height: 40px;
     color: rgb(255, 145, 42);
     border-radius: 10px;
     background-color: #282A36;
@@ -76,7 +79,8 @@ h3{
     position: relative;
     top: 180px;
     margin-right: 70%;
-    width: 25%;
+    width: 90px;
+    height: 40px;
     color: rgb(255, 145, 42);
     border-radius: 10px ;
     background-color: #282A36;
@@ -87,6 +91,11 @@ h3{
     
 
 }
+.btnDireita:hover{
+    background: rgb(164, 161, 161);
+    
+}
+
 
 
 
@@ -96,9 +105,13 @@ h3{
     flex-direction: column;
     position: relative;
     right: 35%;
-    top: 60px;
+    top: 50px;
     color: white;
+    
+}
 
+.placar{
+    font-size: 30px;
 }
 
 .caixaPergunta{
@@ -106,6 +119,7 @@ h3{
     bottom: 50px;
     top: 30px;
     color: white;
+    text-align: center;
     
 }
 
@@ -138,7 +152,10 @@ img{
     border-radius: 20px;
 }
 
+img:hover{
+    border:solid 2px white ;
 
+}
 
 .elemento{
     
@@ -194,3 +211,77 @@ img{
     }
 }
   
+
+@-webkit-keyframes shake-bottom {
+    0%,
+    100% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+      -webkit-transform-origin: 50% 100%;
+              transform-origin: 50% 100%;
+              
+    }
+    10% {
+      -webkit-transform: rotate(2deg);
+              transform: rotate(2deg);
+    }
+    20%,
+    40%,
+    60% {
+      -webkit-transform: rotate(-4deg);
+              transform: rotate(-4deg);
+              
+    }
+    30%,
+    50%,
+    70% {
+      -webkit-transform: rotate(4deg);
+              transform: rotate(4deg);
+    }
+    80% {
+      -webkit-transform: rotate(-2deg);
+              transform: rotate(-2deg);
+    }
+    90% {
+      -webkit-transform: rotate(2deg);
+              transform: rotate(2deg);
+    }
+  }
+  @keyframes shake-bottom {
+    0%,
+    100% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+      -webkit-transform-origin: 50% 100%;
+              transform-origin: 50% 100%;
+    }
+    10% {
+      -webkit-transform: rotate(2deg);
+              transform: rotate(2deg);
+    }
+    20%,
+    40%,
+    60% {
+      -webkit-transform: rotate(-4deg);
+              transform: rotate(-4deg);
+    }
+    30%,
+    50%,
+    70% {
+      -webkit-transform: rotate(4deg);
+              transform: rotate(4deg);
+    }
+    80% {
+      -webkit-transform: rotate(-2deg);
+              transform: rotate(-2deg);
+    }
+    90% {
+      -webkit-transform: rotate(2deg);
+              transform: rotate(2deg);
+    }
+  }
+.animaPlacar{
+    animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    color: greenyellow;
+    text-shadow: 0 0  10px  greenyellow;
+}  

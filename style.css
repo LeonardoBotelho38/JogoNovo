@@ -63,7 +63,7 @@ h3{
 
 .btnDireita{
     position: relative;
-    top: 220px;
+    top: 130px;
     left: 35%;
     width: 90px;
     height: 40px;
@@ -78,7 +78,7 @@ h3{
 
 .btnEsquerda{
     position: relative;
-    top: 180px;
+    top: 90px;
     margin-right: 70%;
     width: 90px;
     height: 40px;
@@ -146,7 +146,7 @@ h3{
     position: relative;
     width: 90vw;
     overflow-x: scroll;
-    top: 200px;
+    top: 100px;
     overflow-x: hidden;
     
     

@@ -2048,7 +2048,7 @@ function selecionaElemento(event){
     
     btnResponder.addEventListener('click', acertouOuErrou)
     
-    
+    console.log(palavraSorteada)
     
     function acertouOuErrou(){
         if(elementoQuadrado.classList.contains('acertou'))

@@ -33,40 +33,48 @@
 
 
 body{
-    display: flex;
-    flex-direction:column;
-    align-items: center;
+    display: grid;
+    
+    grid-template-rows: repeat(6,1fr);;
+    
     height: 100vh;
     width: 100vw;
     background-color: #0c0c19; 
     overflow: hidden;
-    position: absolute;
+    
     
     
 }
 
 h1{
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    width: 100vw;
     color: white;
+    margin-left: 25%;
+    margin: auto;
     text-align: center;
 }
 
 h3{
-    margin: 5px;
-    position: relative;
-    top: 80px;
+    margin-top: auto;
+    text-align: center;
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 5;
     color: white;
     font-size: 25px;
 }
 
 .btnDireita{
-    position: relative;
-    top: 130px;
-    left: 35%;
-    width: 90px;
-    height: 40px;
+    grid-column-start: 4;
+    grid-row-start: 4;
+    margin: auto;
+    
+    
+    height: 90px;
+    width: 40px;
     color: rgb(255, 145, 42);
     border-radius: 10px;
     background-color: #282A36;
@@ -77,11 +85,13 @@ h3{
 }
 
 .btnEsquerda{
-    position: relative;
-    top: 90px;
-    margin-right: 70%;
-    width: 90px;
-    height: 40px;
+    grid-column-start: 1;
+    grid-row-start: 4;
+    margin-right: auto;
+    margin:auto;
+    margin-left: 0;
+    height: 90px;
+    width: 40px;
     color: rgb(255, 145, 42);
     border-radius: 10px ;
     background-color: #282A36;
@@ -101,12 +111,12 @@ h3{
 
 
 .caixaPlacar{
-    align-items: center;
+    grid-column-start: 1;
+    grid-row-start: 2;
     display: flex;
+    align-items: center;
     flex-direction: column;
-    position: relative;
-    right: 35%;
-    top: 50px;
+    justify-content: center;
     color: white;
     
 }
@@ -116,37 +126,36 @@ h3{
 }
 
 .caixaPergunta{
-    position: relative;
-    bottom: 50px;
-    top: 30px;
-    color: white;
-    text-align: center;
     
+    text-align: center;
+    color: white;
+    margin: auto;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 3;
 }
 
 .pergunta{
     font-size: 35px;
     bottom: 35px;
-    position: relative;
-}
-
-.inputResponder{
-    position: relative;
-    top:250px;
     
 }
+
+
 
 
 .tabuleiro{
     
-    display: flex;
-    flex-direction:row;
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-start: 4;
+    margin-left: 2%;
     justify-content: center;
+    display: flex;
     align-items: center;
-    position: relative;
-    width: 90vw;
-    overflow-x: scroll;
-    top: 100px;
+    width: 95vw;
+    grid-column: 1fr;
+    
     overflow-x: hidden;
     
     
@@ -162,6 +171,15 @@ img{
 img:hover{
     border:solid 2px white ;
 
+}
+
+.cxResposta{
+    color: black;
+    background-color: white;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    margin: auto;
 }
 
 .elemento{

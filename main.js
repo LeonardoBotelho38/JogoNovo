@@ -2010,6 +2010,8 @@ const musicaErrou = document.querySelector('#musicaErrou')
 const musicaBtn = document.querySelector('#musicaBtn')
 const caixaDoPlacar = document.querySelector('.caixaPlacar')
 
+const cxResposta = document.querySelector('.cxResposta')
+
 criaGradeDeElementos();
 
 gradeElementos.forEach(el => el.addEventListener("click", selecionaElemento))
@@ -2048,6 +2050,9 @@ function selecionaElemento(event){
     
     btnResponder.addEventListener('click', acertouOuErrou)
     
+    
+    cxResposta.innerHTML = palavraSorteada.portugues 
+
     console.log(palavraSorteada)
     
     function acertouOuErrou(){

@@ -2000,7 +2000,6 @@ const palavrasEmIngles =   [ {'ingles': 'the', 'portugues':'o, a, os, as'},
 const pergunta = document.querySelector('.pergunta')
 const palavrasQueJaForamUsadas = []
 let resposta = document.querySelector('#resposta')
-const btnResponder = document.querySelector('#responder')
 const btnDireita = document.querySelector('.btnDireita')
 const btnEsquerda = document.querySelector('.btnEsquerda')
 let placar = 0
@@ -2045,40 +2044,31 @@ function selecionaElemento(event){
     elementoSelecionado = true
     
     sorteiaPalavras()
-    btnResponder.removeEventListener('click', acertouOuErrou)
-    btnResponder.addEventListener('click', acertouOuErrou)
-    
-    btnResponder.addEventListener('click', acertouOuErrou)
     
     
-    cxResposta.innerHTML = palavraSorteada.portugues 
-
+    
+    function criaAlternativasDeResposta(){
+        const alternativaCorreta = palavraSorteada
+        let removeAlternativaCorreta = palavrasEmIngles.filter(a => a !== palavraSorteada)
+        let alternativasDePalavras = [alternativaCorreta]
+        for(let i = 0; i<3; i++){
+            let randomIndice = Math.floor(Math.random()*removeAlternativaCorreta.length)
+            alternativasDePalavras.push(removeAlternativaCorreta[randomIndice])
+        }
+        let embaralhaAlternativas = alternativasDePalavras.sort(() => Math.random()-0.5)
+        console.log(embaralhaAlternativas)
+        embaralhaAlternativas.forEach(alternativa => {const respostaAlternativa = document.createElement('div')
+        respostaAlternativa.innerHTML = alternativa.portugues
+        respostaAlternativa.classList.add('alternativa')
+        cxResposta.appendChild(respostaAlternativa)
+        })
+    }
+    
+    criaAlternativasDeResposta()
+    
     console.log(palavraSorteada)
     
-    function acertouOuErrou(){
-        if(elementoQuadrado.classList.contains('acertou'))
-        return
     
-        if(resposta.value.toLowerCase().trim() === palavraSorteada.portugues && !elementoQuadrado.classList.contains('errou'))
-            {   elementoQuadrado.classList.remove('elementoSelecionado')
-            elementoQuadrado.classList.add('acertou')
-            palavrasQueJaForamUsadas.push(palavraSorteada)
-            pergunta.innerHTML ='ACERTOU, PARABÉNS!<br>	&#128516;&#128077;'
-            
-            marcaPonto()
-        elementoSelecionado = false
-        }   if(resposta.value.toLowerCase().trim() !== palavraSorteada.portugues && !elementoQuadrado.classList.contains('errou')){
-            pergunta.innerHTML = ` ERROU! &#128553; <br>RESPOSTA: ${palavraSorteada.portugues}`
-            
-            elementoQuadrado.classList.remove('elementoSelecionado')
-            elementoQuadrado.classList.remove('acertou')
-            elementoQuadrado.classList.add('errou')
-            elementoSelecionado = false
-            musicaErrou.volume = 0.2
-            musicaErrou.play()
-        }
-        
-    }
     
     
     function marcaPonto(){
@@ -2095,7 +2085,7 @@ function selecionaElemento(event){
 
 
 }
-resposta.value = ""
+
 
 
 }    

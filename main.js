@@ -2084,7 +2084,8 @@ function selecionaElemento(event){
                     elementoSelecionado = false
                     acertos += 1
                     marcaPonto()
-                    console.log('acerto'+ acertos)
+                    
+                    barraDeProgresso(acertos, erros)
                 }
                 
             }
@@ -2099,8 +2100,8 @@ function selecionaElemento(event){
                     musicaErrou.play()
                     elementoSelecionado = false
                     erros += 1
-                    console.log('erros'+ erros)
                     
+                    barraDeProgresso(acertos, erros)
                 }
             }
         })
@@ -2190,3 +2191,17 @@ function moverParaEsquerda(){
 }
 
 
+function barraDeProgresso(acertos, erros) {
+    const red = document.querySelector(".red")
+    const green = document.querySelector(".green")
+
+    const tamanhoDaBarra = acertos + erros
+    const ladoVermelho = parseInt((erros * 100)/tamanhoDaBarra)
+    const ladoVerde = parseInt((acertos *100)/tamanhoDaBarra)
+
+    red.innerHTML = `%${ladoVermelho}`
+    green.innerHTML = `%${ladoVerde}`
+
+    red.style.height = `${ladoVermelho}%`
+    green.style.height = `${ladoVerde}%`
+}

@@ -188,16 +188,18 @@ img:hover{
     border-radius: 10px;
     border: none;
     cursor: pointer;
+
 }
 
 .alternativa{
     background-color: white;
-    width: 70%;
+    max-width: 400px;
     margin: auto;
     margin-top: 25px;
     border-radius: 10px;
     border: solid 1px black;
     opacity: 0.9;
+    padding: 5px;
 }
 
 .elemento{

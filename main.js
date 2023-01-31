@@ -2009,6 +2009,8 @@ const musicaErrou = document.querySelector('#musicaErrou')
 const musicaBtn = document.querySelector('#musicaBtn')
 const caixaDoPlacar = document.querySelector('.caixaPlacar')
 const cxResposta = document.querySelector('.cxResposta')
+let acertos = 0
+let erros = 0
 
 criaGradeDeElementos()
 
@@ -2074,13 +2076,17 @@ function selecionaElemento(event){
             })
             
             function respostaCorreta(alternativaClicada){
+                if(elementoQuadrado.classList.contains('acertou'))return
                 if(elementoQuadrado.classList.contains('errou'))return
                 if(alternativaClicada.textContent === palavraSorteada.portugues){
                     elementoQuadrado.classList.add('acertou')
                     pergunta.innerHTML ='PARABÉNS!<br>	&#128516;&#128077;'
-                    marcaPonto()
                     elementoSelecionado = false
+                    acertos += 1
+                    marcaPonto()
+                    console.log('acerto'+ acertos)
                 }
+                
             }
 
             function respostaErrada(alternativaClicada){
@@ -2092,34 +2098,29 @@ function selecionaElemento(event){
                     musicaErrou.volume = 0.2
                     musicaErrou.play()
                     elementoSelecionado = false
-                    
+                    erros += 1
+                    console.log('erros'+ erros)
                     
                 }
             }
         })
         
     }
-    placar ++ 
+    
     function marcaPonto(){
-        if(elementoQuadrado.classList.contains('acertou'))
-            document.querySelector('.placar').textContent = placar;
-            musicaAcertou.volume = 0.5
-            musicaAcertou.play()
-            caixaDoPlacar.classList.add('animaPlacar')
-                setTimeout(function(){
-                    caixaDoPlacar.classList.remove('animaPlacar')
+        
+        placar = acertos
+        document.querySelector('.placar').textContent = placar
+        musicaAcertou.volume = 0.5
+        musicaAcertou.play()
+        caixaDoPlacar.classList.add('animaPlacar')
+            setTimeout(function(){
+                caixaDoPlacar.classList.remove('animaPlacar')
                 }, 1000);
                 
     }
     
 }  
-
-
-
-let alternativasDeRespostas = []
-
-
-
 
 
 

@@ -2008,12 +2008,14 @@ const musicaAcertou = document.querySelector('#musicaAcertou')
 const musicaErrou = document.querySelector('#musicaErrou')
 const musicaBtn = document.querySelector('#musicaBtn')
 const caixaDoPlacar = document.querySelector('.caixaPlacar')
-
 const cxResposta = document.querySelector('.cxResposta')
 
-criaGradeDeElementos();
+criaGradeDeElementos()
 
-gradeElementos.forEach(el => el.addEventListener("click", selecionaElemento))
+
+gradeElementos.forEach(el => el.addEventListener("click",  selecionaElemento))
+btnEsquerda.addEventListener('click', moverParaEsquerda)
+btnDireita.addEventListener('click', moverParaDireita)
 
 
 
@@ -2030,13 +2032,14 @@ function criaGradeDeElementos() {
         gradeElementos.push(elemento)
     }
 }
-let elementoSelecionado = false
 
+let elementoSelecionado = false
 
 function selecionaElemento(event){
     if (elementoSelecionado)return
-    const elementoQuadrado = event.target 
-    if(elementoQuadrado.classList.contains('elementoSelecionado'))return
+    cxResposta.innerHTML = ''
+    const elementoQuadrado =  event.target
+    if(elementoQuadrado.classList.contains('elementoSelecionado'))  return
     if(elementoQuadrado.classList.contains('acertou')||elementoQuadrado.classList.contains('errou')){
         return
     }
@@ -2045,50 +2048,80 @@ function selecionaElemento(event){
     
     sorteiaPalavras()
     
-    
-    
+    criaAlternativasDeResposta()
+
     function criaAlternativasDeResposta(){
         const alternativaCorreta = palavraSorteada
         let removeAlternativaCorreta = palavrasEmIngles.filter(a => a !== palavraSorteada)
         let alternativasDePalavras = [alternativaCorreta]
-        for(let i = 0; i<3; i++){
-            let randomIndice = Math.floor(Math.random()*removeAlternativaCorreta.length)
-            alternativasDePalavras.push(removeAlternativaCorreta[randomIndice])
-        }
-        let embaralhaAlternativas = alternativasDePalavras.sort(() => Math.random()-0.5)
-        console.log(embaralhaAlternativas)
-        embaralhaAlternativas.forEach(alternativa => {const respostaAlternativa = document.createElement('div')
-        respostaAlternativa.innerHTML = alternativa.portugues
-        respostaAlternativa.classList.add('alternativa')
-        cxResposta.appendChild(respostaAlternativa)
+            for(let i = 0; i<3; i++){
+                let randomIndice = Math.floor(Math.random()*removeAlternativaCorreta.length)
+                alternativasDePalavras.push(removeAlternativaCorreta[randomIndice])
+            }
+            let embaralhaAlternativas = alternativasDePalavras.sort(() => Math.random()-0.5)
+            
+            embaralhaAlternativas.forEach(alternativa => { const respostaAlternativa = document.createElement('div')
+            respostaAlternativa.innerHTML = alternativa.portugues
+            respostaAlternativa.classList.add('alternativa')
+            cxResposta.appendChild(respostaAlternativa)
+    
+            cxResposta.addEventListener('click', function(event) {
+                if (event.target && event.target.matches('.alternativa')) {
+                respostaCorreta(event.target)
+                respostaErrada(event.target)
+                }
+            
+            })
+            
+            function respostaCorreta(alternativaClicada){
+                if(elementoQuadrado.classList.contains('errou'))return
+                if(alternativaClicada.textContent === palavraSorteada.portugues){
+                    elementoQuadrado.classList.add('acertou')
+                    pergunta.innerHTML ='PARABÉNS!<br>	&#128516;&#128077;'
+                    marcaPonto()
+                    elementoSelecionado = false
+                }
+            }
+
+            function respostaErrada(alternativaClicada){
+                if(elementoQuadrado.classList.contains('acertou'))return
+                if(elementoQuadrado.classList.contains('errou'))return
+                if(alternativaClicada.textContent !== palavraSorteada.portugues){
+                    elementoQuadrado.classList.add('errou')
+                    pergunta.innerHTML = ` ERROU! &#128553; <br>RESPOSTA: ${palavraSorteada.portugues}`
+                    musicaErrou.volume = 0.2
+                    musicaErrou.play()
+                    elementoSelecionado = false
+                    
+                    
+                }
+            }
         })
+        
+    }
+    placar ++ 
+    function marcaPonto(){
+        if(elementoQuadrado.classList.contains('acertou'))
+            document.querySelector('.placar').textContent = placar;
+            musicaAcertou.volume = 0.5
+            musicaAcertou.play()
+            caixaDoPlacar.classList.add('animaPlacar')
+                setTimeout(function(){
+                    caixaDoPlacar.classList.remove('animaPlacar')
+                }, 1000);
+                
     }
     
-    criaAlternativasDeResposta()
-    
-    console.log(palavraSorteada)
-    
-    
-    
-    
-    function marcaPonto(){
-        placar ++  
-        if(elementoQuadrado.classList.contains('acertou'))
-        document.querySelector('.placar').textContent = placar;
-        musicaAcertou.volume = 0.5
-        musicaAcertou.play()
-        caixaDoPlacar.classList.add('animaPlacar')
-        setTimeout(function(){
-            caixaDoPlacar.classList.remove('animaPlacar')
-        }, 1000);
-        
-
-
-}
+}  
 
 
 
-}    
+let alternativasDeRespostas = []
+
+
+
+
+
 
 function sorteiaPalavras() {
     if(palavrasEmIngles.length === 0){
@@ -2108,11 +2141,10 @@ function sorteiaPalavras() {
 }
 
 
-btnEsquerda.addEventListener('click', moverParaEsquerda)
-btnDireita.addEventListener('click', moverParaDireita)
 
 
-let idIntervalo;
+
+let idIntervalo
 
 
 function moverParaDireita(){

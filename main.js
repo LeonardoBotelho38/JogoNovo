@@ -1,2207 +1,2193 @@
 const gradeElementos = [];
-const tabuleiro = document.querySelector('.tabuleiro')
-const palavrasEmIngles =   [ {'ingles': 'the', 'portugues':'o, a, os, as'},
+const tabuleiro = document.querySelector(".tabuleiro");
+const palavrasEmIngles = [
+  { ingles: "the", portugues: "o, a, os, as" },
 
-{'ingles': 'of', 'portugues':'de'},
+  { ingles: "of", portugues: "de" },
 
-{'ingles': 'to', 'portugues':'para'},
+  { ingles: "to", portugues: "para" },
 
-{'ingles': 'and', 'portugues':'e'},
+  { ingles: "and", portugues: "e" },
 
-{'ingles': 'a', 'portugues':'um, uma'},
+  { ingles: "a", portugues: "um, uma" },
 
-{'ingles': 'in', 'portugues':'em, dentro'},
+  { ingles: "in", portugues: "em, dentro" },
 
-{'ingles': 'is', 'portugues':'é'},
+  { ingles: "is", portugues: "é" },
 
-{'ingles': 'it', 'portugues':'este'},
+  { ingles: "it", portugues: "este" },
 
-{'ingles': 'you', 'portugues':'você'},
+  { ingles: "you", portugues: "você" },
 
-{'ingles': 'that', 'portugues':'que, aquele'},
+  { ingles: "that", portugues: "que, aquele" },
 
-{'ingles': 'he', 'portugues':'ele'},
+  { ingles: "he", portugues: "ele" },
 
-{'ingles': 'was', 'portugues':'era, estava'},
+  { ingles: "was", portugues: "era, estava" },
 
-{'ingles': 'for', 'portugues':'por, para'},
+  { ingles: "for", portugues: "por, para" },
 
-{'ingles': 'on', 'portugues':'em'},
+  { ingles: "on", portugues: "em" },
 
-{'ingles': 'are', 'portugues':'são, estão'},
+  { ingles: "are", portugues: "são, estão" },
 
-{'ingles': 'with', 'portugues':'com'},
+  { ingles: "with", portugues: "com" },
 
-{'ingles': 'as', 'portugues':'como, enquanto'},
+  { ingles: "as", portugues: "como, enquanto" },
 
-{'ingles': 'I', 'portugues':'eu'},
+  { ingles: "I", portugues: "eu" },
 
-{'ingles': 'his', 'portugues':'seu'},
+  { ingles: "his", portugues: "seu" },
 
-{'ingles': 'they', 'portugues':'eles'},
+  { ingles: "they", portugues: "eles" },
 
-{'ingles': 'be', 'portugues':'ser, estar'},
+  { ingles: "be", portugues: "ser, estar" },
 
-{'ingles': 'at', 'portugues':'em'},
+  { ingles: "at", portugues: "em" },
 
-{'ingles': 'one', 'portugues':'um'},
+  { ingles: "one", portugues: "um" },
 
-{'ingles': 'have', 'portugues':'ter'},
+  { ingles: "have", portugues: "ter" },
 
-{'ingles': 'this', 'portugues':'este'},
+  { ingles: "this", portugues: "este" },
 
-{'ingles': 'from', 'portugues':'de'},
+  { ingles: "from", portugues: "de" },
 
-{'ingles': 'or', 'portugues':'ou'},
+  { ingles: "or", portugues: "ou" },
 
-{'ingles': 'had', 'portugues':'tinha'},
+  { ingles: "had", portugues: "tinha" },
 
-{'ingles': 'by', 'portugues':'por, em'},
+  { ingles: "by", portugues: "por, em" },
 
-{'ingles': 'hot', 'portugues':'quente'},
+  { ingles: "hot", portugues: "quente" },
 
-{'ingles': 'word', 'portugues':'palavra'},
+  { ingles: "word", portugues: "palavra" },
 
-{'ingles': 'but', 'portugues':'mas'},
+  { ingles: "but", portugues: "mas" },
 
-{'ingles': 'what', 'portugues':'que'},
+  { ingles: "what", portugues: "que" },
 
-{'ingles': 'some', 'portugues':'algum'},
+  { ingles: "some", portugues: "algum" },
 
-{'ingles': 'we', 'portugues':'nós'},
+  { ingles: "we", portugues: "nós" },
 
-{'ingles': 'can', 'portugues':'pode, lata'},
+  { ingles: "can", portugues: "pode, lata" },
 
-{'ingles': 'out', 'portugues':'fora'},
+  { ingles: "out", portugues: "fora" },
 
-{'ingles': 'other', 'portugues':'outro'},
+  { ingles: "other", portugues: "outro" },
 
-{'ingles': 'were', 'portugues':'eram, esavam'},
+  { ingles: "were", portugues: "eram, esavam" },
 
-{'ingles': 'all', 'portugues':'todo'},
+  { ingles: "all", portugues: "todo" },
 
-{'ingles': 'there', 'portugues':'lá'},
+  { ingles: "there", portugues: "lá" },
 
-{'ingles': 'when', 'portugues':'quando'},
+  { ingles: "when", portugues: "quando" },
 
-{'ingles': 'up', 'portugues':'para-cima'},
+  { ingles: "up", portugues: "para-cima" },
 
-{'ingles': 'use', 'portugues':'usar'},
+  { ingles: "use", portugues: "usar" },
 
-{'ingles': 'your', 'portugues':'seu'},
+  { ingles: "your", portugues: "seu" },
 
-{'ingles': 'how', 'portugues':'como, quão'},
+  { ingles: "how", portugues: "como, quão" },
 
-{'ingles': 'said', 'portugues':'disse'},
+  { ingles: "said", portugues: "disse" },
 
-{'ingles': 'an', 'portugues':'um, uma'},
+  { ingles: "an", portugues: "um, uma" },
 
-{'ingles': 'each', 'portugues':'cada'},
+  { ingles: "each", portugues: "cada" },
 
-{'ingles': 'she', 'portugues':'ela'},
+  { ingles: "she", portugues: "ela" },
 
-{'ingles': 'which', 'portugues':'qual'},
+  { ingles: "which", portugues: "qual" },
 
-{'ingles': 'do', 'portugues':'fazer, mesmo'},
+  { ingles: "do", portugues: "fazer, mesmo" },
 
-{'ingles': 'their', 'portugues':'seus'},
+  { ingles: "their", portugues: "seus" },
 
-{'ingles': 'time', 'portugues':'tempo, hora'},
+  { ingles: "time", portugues: "tempo, hora" },
 
-{'ingles': 'if', 'portugues':'se'},
+  { ingles: "if", portugues: "se" },
 
-{'ingles': 'will', 'portugues':'vai, vontade'},
+  { ingles: "will", portugues: "vai, vontade" },
 
-{'ingles': 'way', 'portugues':'caminho, jeito'},
+  { ingles: "way", portugues: "caminho, jeito" },
 
-{'ingles': 'about', 'portugues':'sobre, quase'},
+  { ingles: "about", portugues: "sobre, quase" },
 
-{'ingles': 'many', 'portugues':'muitos'},
+  { ingles: "many", portugues: "muitos" },
 
-{'ingles': 'then', 'portugues':'então'},
+  { ingles: "then", portugues: "então" },
 
-{'ingles': 'them', 'portugues':'deles'},
+  { ingles: "them", portugues: "deles" },
 
-{'ingles': 'write', 'portugues':'escrever'},
+  { ingles: "write", portugues: "escrever" },
 
-{'ingles': 'would', 'portugues':'deveria'},
+  { ingles: "would", portugues: "deveria" },
 
-{'ingles': 'like', 'portugues':'como, gostar'},
+  { ingles: "like", portugues: "como, gostar" },
 
-{'ingles': 'so', 'portugues':'assim, tão'},
+  { ingles: "so", portugues: "assim, tão" },
 
-{'ingles': 'these', 'portugues':'estes'},
+  { ingles: "these", portugues: "estes" },
 
-{'ingles': 'her', 'portugues':'dela'},
+  { ingles: "her", portugues: "dela" },
 
-{'ingles': 'long', 'portugues':'longo'},
+  { ingles: "long", portugues: "longo" },
 
-{'ingles': 'make', 'portugues':'fazer'},
+  { ingles: "make", portugues: "fazer" },
 
-{'ingles': 'thing', 'portugues':'coisa'},
+  { ingles: "thing", portugues: "coisa" },
 
-{'ingles': 'see', 'portugues':'ver'},
+  { ingles: "see", portugues: "ver" },
 
-{'ingles': 'him', 'portugues':'dele'},
+  { ingles: "him", portugues: "dele" },
 
-{'ingles': 'two', 'portugues':'dois, duas'},
+  { ingles: "two", portugues: "dois, duas" },
 
-{'ingles': 'has', 'portugues':'tem'},
+  { ingles: "has", portugues: "tem" },
 
-{'ingles': 'look', 'portugues':'olhar'},
+  { ingles: "look", portugues: "olhar" },
 
-{'ingles': 'more', 'portugues':'mais'},
+  { ingles: "more", portugues: "mais" },
 
-{'ingles': 'day', 'portugues':'dia'},
+  { ingles: "day", portugues: "dia" },
 
-{'ingles': 'could', 'portugues':'poderia'},
+  { ingles: "could", portugues: "poderia" },
 
-{'ingles': 'go', 'portugues':'ir'},
+  { ingles: "go", portugues: "ir" },
 
-{'ingles': 'come', 'portugues':'vir'},
+  { ingles: "come", portugues: "vir" },
 
-{'ingles': 'did', 'portugues':'fez, mesmo'},
+  { ingles: "did", portugues: "fez, mesmo" },
 
-{'ingles': 'number', 'portugues':'número'},
+  { ingles: "number", portugues: "número" },
 
-{'ingles': 'sound', 'portugues':'som'},
+  { ingles: "sound", portugues: "som" },
 
-{'ingles': 'no', 'portugues':'não'},
+  { ingles: "no", portugues: "não" },
 
-{'ingles': 'most', 'portugues':'mais, maior'},
+  { ingles: "most", portugues: "mais, maior" },
 
-{'ingles': 'people', 'portugues':'pessoas, povo'},
+  { ingles: "people", portugues: "pessoas, povo" },
 
-{'ingles': 'my', 'portugues':'meu'},
+  { ingles: "my", portugues: "meu" },
 
-{'ingles': 'over', 'portugues':'sobre'},
+  { ingles: "over", portugues: "sobre" },
 
-{'ingles': 'know', 'portugues':'saber'},
+  { ingles: "know", portugues: "saber" },
 
-{'ingles': 'water', 'portugues':'água'},
+  { ingles: "water", portugues: "água" },
 
-{'ingles': 'than', 'portugues':'que'},
+  { ingles: "than", portugues: "que" },
 
-{'ingles': 'call', 'portugues':'chamar'},
+  { ingles: "call", portugues: "chamar" },
 
-{'ingles': 'first', 'portugues':'primeiro'},
+  { ingles: "first", portugues: "primeiro" },
 
-{'ingles': 'who', 'portugues':'quem'},
+  { ingles: "who", portugues: "quem" },
 
-{'ingles': 'may', 'portugues':'maio, pode'},
+  { ingles: "may", portugues: "maio, pode" },
 
-{'ingles': 'down', 'portugues':'baixo'},
+  { ingles: "down", portugues: "baixo" },
 
-{'ingles': 'side', 'portugues':'lado'},
+  { ingles: "side", portugues: "lado" },
 
-{'ingles': 'been', 'portugues':'sido, estado'},
+  { ingles: "been", portugues: "sido, estado" },
 
-{'ingles': 'now', 'portugues':'agora'},
+  { ingles: "now", portugues: "agora" },
 
-{'ingles': 'find', 'portugues':'encontrar'},
+  { ingles: "find", portugues: "encontrar" },
 
-{'ingles': 'any', 'portugues':'qualquer'},
+  { ingles: "any", portugues: "qualquer" },
 
-{'ingles': 'new', 'portugues':'novo'},
+  { ingles: "new", portugues: "novo" },
 
-{'ingles': 'work', 'portugues':'trabalho'},
+  { ingles: "work", portugues: "trabalho" },
 
-{'ingles': 'part', 'portugues':'parte'},
+  { ingles: "part", portugues: "parte" },
 
-{'ingles': 'take', 'portugues':'pegar'},
+  { ingles: "take", portugues: "pegar" },
 
-{'ingles': 'get', 'portugues':'obter'},
+  { ingles: "get", portugues: "obter" },
 
-{'ingles': 'place', 'portugues':'lugar'},
+  { ingles: "place", portugues: "lugar" },
 
-{'ingles': 'made', 'portugues':'feito'},
+  { ingles: "made", portugues: "feito" },
 
-{'ingles': 'live', 'portugues':'viver, vivo'},
+  { ingles: "live", portugues: "viver, vivo" },
 
-{'ingles': 'where', 'portugues':'onde'},
+  { ingles: "where", portugues: "onde" },
 
-{'ingles': 'after', 'portugues':'após'},
+  { ingles: "after", portugues: "após" },
 
-{'ingles': 'back', 'portugues':'atrás, costas'},
+  { ingles: "back", portugues: "atrás, costas" },
 
-{'ingles': 'little', 'portugues':'pequeno, pouco'},
+  { ingles: "little", portugues: "pequeno, pouco" },
 
-{'ingles': 'only', 'portugues':'somente'},
+  { ingles: "only", portugues: "somente" },
 
-{'ingles': 'round', 'portugues':'redondo, rodada'},
+  { ingles: "round", portugues: "redondo, rodada" },
 
-{'ingles': 'man', 'portugues':'homem'},
+  { ingles: "man", portugues: "homem" },
 
-{'ingles': 'year', 'portugues':'ano'},
+  { ingles: "year", portugues: "ano" },
 
-{'ingles': 'came', 'portugues':'chegado'},
+  { ingles: "came", portugues: "chegado" },
 
-{'ingles': 'show', 'portugues':'mostrar'},
+  { ingles: "show", portugues: "mostrar" },
 
-{'ingles': 'every', 'portugues':'cada'},
+  { ingles: "every", portugues: "cada" },
 
-{'ingles': 'good', 'portugues':'bom'},
+  { ingles: "good", portugues: "bom" },
 
-{'ingles': 'me', 'portugues':'me'},
+  { ingles: "me", portugues: "me" },
 
-{'ingles': 'give', 'portugues':'dar'},
+  { ingles: "give", portugues: "dar" },
 
-{'ingles': 'our', 'portugues':'nosso, nossa'},
+  { ingles: "our", portugues: "nosso, nossa" },
 
-{'ingles': 'under', 'portugues':'sob'},
+  { ingles: "under", portugues: "sob" },
 
-{'ingles': 'name', 'portugues':'nome'},
+  { ingles: "name", portugues: "nome" },
 
-{'ingles': 'very', 'portugues':'muito, absoluto'},
+  { ingles: "very", portugues: "muito, absoluto" },
 
-{'ingles': 'through', 'portugues':'através'},
+  { ingles: "through", portugues: "através" },
 
-{'ingles': 'just', 'portugues':'justo, só'},
+  { ingles: "just", portugues: "justo, só" },
 
-{'ingles': 'form', 'portugues':'forma, formulário'},
+  { ingles: "form", portugues: "forma, formulário" },
 
-{'ingles': 'sentence', 'portugues':'sêntâns sentença'},
+  { ingles: "sentence", portugues: "sêntâns sentença" },
 
-{'ingles': 'great', 'portugues':'ótimo, excelente, grande'},
+  { ingles: "great", portugues: "ótimo, excelente, grande" },
 
-{'ingles': 'think', 'portugues':'pensar'},
+  { ingles: "think", portugues: "pensar" },
 
-{'ingles': 'say', 'portugues':'sei'},
+  { ingles: "say", portugues: "sei" },
 
-{'ingles': 'help', 'portugues':'ajudar'},
+  { ingles: "help", portugues: "ajudar" },
 
-{'ingles': 'low', 'portugues':'baixo'},
+  { ingles: "low", portugues: "baixo" },
 
-{'ingles': 'line', 'portugues':'linha, fila'},
+  { ingles: "line", portugues: "linha, fila" },
 
-{'ingles': 'differ', 'portugues':'diferir'},
+  { ingles: "differ", portugues: "diferir" },
 
-{'ingles': 'turn', 'portugues':'tornar, vez'},
+  { ingles: "turn", portugues: "tornar, vez" },
 
-{'ingles': 'cause', 'portugues':'causa'},
+  { ingles: "cause", portugues: "causa" },
 
-{'ingles': 'much', 'portugues':'muito'},
+  { ingles: "much", portugues: "muito" },
 
-{'ingles': 'mean', 'portugues':'meio, significar'},
+  { ingles: "mean", portugues: "meio, significar" },
 
-{'ingles': 'before', 'portugues':'antes'},
+  { ingles: "before", portugues: "antes" },
 
-{'ingles': 'move', 'portugues':'movimento'},
+  { ingles: "move", portugues: "movimento" },
 
-{'ingles': 'right', 'portugues':'direito'},
+  { ingles: "right", portugues: "direito" },
 
-{'ingles': 'boy', 'portugues':'garoto'},
+  { ingles: "boy", portugues: "garoto" },
 
-{'ingles': 'old', 'portugues':'velho'},
+  { ingles: "old", portugues: "velho" },
 
-{'ingles': 'too', 'portugues':'também'},
+  { ingles: "too", portugues: "também" },
 
-{'ingles': 'same', 'portugues':'mesmo'},
+  { ingles: "same", portugues: "mesmo" },
 
-{'ingles': 'tell', 'portugues':'contar'},
+  { ingles: "tell", portugues: "contar" },
 
-{'ingles': 'does', 'portugues':'faz, mesmo'},
+  { ingles: "does", portugues: "faz, mesmo" },
 
-{'ingles': 'set', 'portugues':'conjunto, fixar'},
+  { ingles: "set", portugues: "conjunto, fixar" },
 
-{'ingles': 'three', 'portugues':'três'},
+  { ingles: "three", portugues: "três" },
 
-{'ingles': 'want', 'portugues':'querer'},
+  { ingles: "want", portugues: "querer" },
 
-{'ingles': 'air', 'portugues':'ar'},
+  { ingles: "air", portugues: "ar" },
 
-{'ingles': 'well', 'portugues':'bem, poço'},
+  { ingles: "well", portugues: "bem, poço" },
 
-{'ingles': 'also', 'portugues':'também'},
+  { ingles: "also", portugues: "também" },
 
-{'ingles': 'play', 'portugues':'peça, tocar'},
+  { ingles: "play", portugues: "peça, tocar" },
 
-{'ingles': 'small', 'portugues':'pequeno'},
+  { ingles: "small", portugues: "pequeno" },
 
-{'ingles': 'end', 'portugues':'fim, finalizar'},
+  { ingles: "end", portugues: "fim, finalizar" },
 
-{'ingles': 'put', 'portugues':'por'},
+  { ingles: "put", portugues: "por" },
 
-{'ingles': 'home', 'portugues':'casa'},
+  { ingles: "home", portugues: "casa" },
 
-{'ingles': 'read', 'portugues':'ler, lido'},
+  { ingles: "read", portugues: "ler, lido" },
 
-{'ingles': 'hand', 'portugues':'mão'},
+  { ingles: "hand", portugues: "mão" },
 
-{'ingles': 'port', 'portugues':'porto'},
+  { ingles: "port", portugues: "porto" },
 
-{'ingles': 'large', 'portugues':'grande'},
+  { ingles: "large", portugues: "grande" },
 
-{'ingles': 'spell', 'portugues':'soletrar, encanto'},
+  { ingles: "spell", portugues: "soletrar, encanto" },
 
-{'ingles': 'add', 'portugues':'adicionar'},
+  { ingles: "add", portugues: "adicionar" },
 
-{'ingles': 'even', 'portugues':'mesmo'},
+  { ingles: "even", portugues: "mesmo" },
 
-{'ingles': 'land', 'portugues':'terra'},
+  { ingles: "land", portugues: "terra" },
 
-{'ingles': 'here', 'portugues':'aqui'},
+  { ingles: "here", portugues: "aqui" },
 
-{'ingles': 'must', 'portugues':'dever'},
+  { ingles: "must", portugues: "dever" },
 
-{'ingles': 'big', 'portugues':'grande'},
+  { ingles: "big", portugues: "grande" },
 
-{'ingles': 'high', 'portugues':'alto such'},
+  { ingles: "high", portugues: "alto such" },
 
-{'ingles': 'follow', 'portugues':'seguir'},
+  { ingles: "follow", portugues: "seguir" },
 
-{'ingles': 'act', 'portugues':'ato, agir'},
+  { ingles: "act", portugues: "ato, agir" },
 
-{'ingles': 'why', 'portugues':'porque'},
+  { ingles: "why", portugues: "porque" },
 
-{'ingles': 'ask', 'portugues':'pedir, perguntar'},
+  { ingles: "ask", portugues: "pedir, perguntar" },
 
-{'ingles': 'men', 'portugues':'homens'},
+  { ingles: "men", portugues: "homens" },
 
-{'ingles': 'change', 'portugues':'mudar'},
+  { ingles: "change", portugues: "mudar" },
 
-{'ingles': 'went', 'portugues':'foi'},
+  { ingles: "went", portugues: "foi" },
 
-{'ingles': 'light', 'portugues':'leve, luz'},
+  { ingles: "light", portugues: "leve, luz" },
 
-{'ingles': 'kind', 'portugues':'bom, tipo'},
+  { ingles: "kind", portugues: "bom, tipo" },
 
-{'ingles': 'off', 'portugues':'por, desligado'},
+  { ingles: "off", portugues: "por, desligado" },
 
-{'ingles': 'need', 'portugues':'precisar'},
+  { ingles: "need", portugues: "precisar" },
 
-{'ingles': 'house', 'portugues':'casa'},
+  { ingles: "house", portugues: "casa" },
 
-{'ingles': 'picture', 'portugues':'foto, filme'},
+  { ingles: "picture", portugues: "foto, filme" },
 
-{'ingles': 'try', 'portugues':'tentar'},
+  { ingles: "try", portugues: "tentar" },
 
-{'ingles': 'us', 'portugues':'nos'},
+  { ingles: "us", portugues: "nos" },
 
-{'ingles': 'again', 'portugues':'novamente'},
+  { ingles: "again", portugues: "novamente" },
 
-{'ingles': 'animal', 'portugues':'animal'},
+  { ingles: "animal", portugues: "animal" },
 
-{'ingles': 'point', 'portugues':'ponto'},
+  { ingles: "point", portugues: "ponto" },
 
-{'ingles': 'mother', 'portugues':'mãe'},
+  { ingles: "mother", portugues: "mãe" },
 
-{'ingles': 'world', 'portugues':'mundo'},
+  { ingles: "world", portugues: "mundo" },
 
-{'ingles': 'near', 'portugues':'perto'},
+  { ingles: "near", portugues: "perto" },
 
-{'ingles': 'build', 'portugues':'construir'},
+  { ingles: "build", portugues: "construir" },
 
-{'ingles': 'self', 'portugues':'próprio, ego'},
+  { ingles: "self", portugues: "próprio, ego" },
 
-{'ingles': 'earth', 'portugues':'terra'},
+  { ingles: "earth", portugues: "terra" },
 
-{'ingles': 'father', 'portugues':'pai'},
+  { ingles: "father", portugues: "pai" },
 
-{'ingles': 'head', 'portugues':'cabeça'},
+  { ingles: "head", portugues: "cabeça" },
 
-{'ingles': 'stand', 'portugues':'permanecer, de-pé, banca'},
+  { ingles: "stand", portugues: "permanecer, de-pé, banca" },
 
-{'ingles': 'own', 'portugues':'próprio'},
+  { ingles: "own", portugues: "próprio" },
 
-{'ingles': 'page', 'portugues':'página'},
+  { ingles: "page", portugues: "página" },
 
-{'ingles': 'should', 'portugues':'deveria'},
+  { ingles: "should", portugues: "deveria" },
 
-{'ingles': 'country', 'portugues':'país'},
+  { ingles: "country", portugues: "país" },
 
-{'ingles': 'found', 'portugues':'encontrado, fundar'},
+  { ingles: "found", portugues: "encontrado, fundar" },
 
-{'ingles': 'answer', 'portugues':'resposta'},
+  { ingles: "answer", portugues: "resposta" },
 
-{'ingles': 'school', 'portugues':'escola'},
+  { ingles: "school", portugues: "escola" },
 
-{'ingles': 'grow', 'portugues':'crescer'},
+  { ingles: "grow", portugues: "crescer" },
 
-{'ingles': 'study', 'portugues':'estudo'},
+  { ingles: "study", portugues: "estudo" },
 
-{'ingles': 'still', 'portugues':'até, calmo'},
+  { ingles: "still", portugues: "até, calmo" },
 
-{'ingles': 'learn', 'portugues':'aprender'},
+  { ingles: "learn", portugues: "aprender" },
 
-{'ingles': 'plant', 'portugues':'planta, fábrica'},
+  { ingles: "plant", portugues: "planta, fábrica" },
 
-{'ingles': 'cover', 'portugues':'cobrir'},
+  { ingles: "cover", portugues: "cobrir" },
 
-{'ingles': 'food', 'portugues':'comida'},
+  { ingles: "food", portugues: "comida" },
 
-{'ingles': 'sun', 'portugues':'sol'},
+  { ingles: "sun", portugues: "sol" },
 
-{'ingles': 'four', 'portugues':'quatro'},
+  { ingles: "four", portugues: "quatro" },
 
-{'ingles': 'between', 'portugues':'entre'},
+  { ingles: "between", portugues: "entre" },
 
-{'ingles': 'state', 'portugues':'estado'},
+  { ingles: "state", portugues: "estado" },
 
-{'ingles': 'keep', 'portugues':'guardar'},
+  { ingles: "keep", portugues: "guardar" },
 
-{'ingles': 'eye', 'portugues':'olho'},
+  { ingles: "eye", portugues: "olho" },
 
-{'ingles': 'never', 'portugues':'nunca'},
+  { ingles: "never", portugues: "nunca" },
 
-{'ingles': 'last', 'portugues':'último, durar'},
+  { ingles: "last", portugues: "último, durar" },
 
-{'ingles': 'let', 'portugues':'deixar'},
+  { ingles: "let", portugues: "deixar" },
 
-{'ingles': 'thought', 'portugues':'pensamento, pensado'},
+  { ingles: "thought", portugues: "pensamento, pensado" },
 
-{'ingles': 'city', 'portugues':'cidade'},
+  { ingles: "city", portugues: "cidade" },
 
-{'ingles': 'tree', 'portugues':'árvore'},
+  { ingles: "tree", portugues: "árvore" },
 
-{'ingles': 'cross', 'portugues':'cruz, cruzar'},
+  { ingles: "cross", portugues: "cruz, cruzar" },
 
-{'ingles': 'farm', 'portugues':'fazenda'},
+  { ingles: "farm", portugues: "fazenda" },
 
-{'ingles': 'hard', 'portugues':'duro'},
+  { ingles: "hard", portugues: "duro" },
 
-{'ingles': 'start', 'portugues':'começar'},
+  { ingles: "start", portugues: "começar" },
 
-{'ingles': 'might', 'portugues':'poder, poderia'},
+  { ingles: "might", portugues: "poder, poderia" },
 
-{'ingles': 'story', 'portugues':'história, andar'},
+  { ingles: "story", portugues: "história, andar" },
 
-{'ingles': 'saw', 'portugues':'viu, serra'},
+  { ingles: "saw", portugues: "viu, serra" },
 
-{'ingles': 'far', 'portugues':'longe'},
+  { ingles: "far", portugues: "longe" },
 
-{'ingles': 'sea', 'portugues':'mar'},
+  { ingles: "sea", portugues: "mar" },
 
-{'ingles': 'draw', 'portugues':'desenhar'},
+  { ingles: "draw", portugues: "desenhar" },
 
-{'ingles': 'left', 'portugues':'esquerda'},
+  { ingles: "left", portugues: "esquerda" },
 
-{'ingles': 'late', 'portugues':'tarde'},
+  { ingles: "late", portugues: "tarde" },
 
-{'ingles': 'run', 'portugues':'correr'},
+  { ingles: "run", portugues: "correr" },
 
+  { ingles: "while", portugues: "enquanto" },
 
+  { ingles: "press", portugues: "pressão" },
 
-{'ingles': 'while', 'portugues':'enquanto'},
+  { ingles: "close", portugues: "fechar" },
 
-{'ingles': 'press', 'portugues':'pressão'},
+  { ingles: "night", portugues: "noite" },
 
-{'ingles': 'close', 'portugues':'fechar'},
+  { ingles: "real", portugues: "real" },
 
-{'ingles': 'night', 'portugues':'noite'},
+  { ingles: "life", portugues: "vida" },
 
-{'ingles': 'real', 'portugues':'real'},
+  { ingles: "few", portugues: "alguns" },
 
-{'ingles': 'life', 'portugues':'vida'},
+  { ingles: "north", portugues: "norte" },
 
-{'ingles': 'few', 'portugues':'alguns'},
+  { ingles: "open", portugues: "aberto" },
 
-{'ingles': 'north', 'portugues':'norte'},
+  { ingles: "seem", portugues: "parecer" },
 
-{'ingles': 'open', 'portugues':'aberto'},
+  { ingles: "together", portugues: "juntos" },
 
-{'ingles': 'seem', 'portugues':'parecer'},
+  { ingles: "next", portugues: "próximo" },
 
-{'ingles': 'together', 'portugues':'juntos'},
+  { ingles: "white", portugues: "branco" },
 
-{'ingles': 'next', 'portugues':'próximo'},
+  { ingles: "children", portugues: "crianças" },
 
-{'ingles': 'white', 'portugues':'branco'},
+  { ingles: "begin", portugues: "começar" },
 
-{'ingles': 'children', 'portugues':'crianças'},
+  { ingles: "got", portugues: "obteve" },
 
-{'ingles': 'begin', 'portugues':'começar'},
+  { ingles: "walk", portugues: "andar" },
 
-{'ingles': 'got', 'portugues':'obteve'},
+  { ingles: "example", portugues: "exemplo" },
 
-{'ingles': 'walk', 'portugues':'andar'},
+  { ingles: "ease", portugues: "facilitar" },
 
-{'ingles': 'example', 'portugues':'exemplo'},
+  { ingles: "paper", portugues: "papel" },
 
-{'ingles': 'ease', 'portugues':'facilitar'},
+  { ingles: "group", portugues: "grupo" },
 
-{'ingles': 'paper', 'portugues':'papel'},
+  { ingles: "always", portugues: "sempre" },
 
-{'ingles': 'group', 'portugues':'grupo'},
+  { ingles: "music", portugues: "música" },
 
-{'ingles': 'always', 'portugues':'sempre'},
+  { ingles: "those", portugues: "aqueles" },
 
-{'ingles': 'music', 'portugues':'música'},
+  { ingles: "both", portugues: "ambos" },
 
-{'ingles': 'those', 'portugues':'aqueles'},
+  { ingles: "mark", portugues: "marcar" },
 
-{'ingles': 'both', 'portugues':'ambos'},
+  { ingles: "often", portugues: "frequentemente" },
 
-{'ingles': 'mark', 'portugues':'marcar'},
+  { ingles: "letter", portugues: "letra" },
 
-{'ingles': 'often', 'portugues':'frequentemente'},
+  { ingles: "until", portugues: "até" },
 
-{'ingles': 'letter', 'portugues':'letra'},
+  { ingles: "mile", portugues: "milha" },
 
-{'ingles': 'until', 'portugues':'até'},
+  { ingles: "river", portugues: "rio" },
 
-{'ingles': 'mile', 'portugues':'milha'},
+  { ingles: "car", portugues: "carro" },
 
-{'ingles': 'river', 'portugues':'rio'},
+  { ingles: "feet", portugues: "pés" },
 
-{'ingles': 'car', 'portugues':'carro'},
+  { ingles: "care", portugues: "cuidado" },
 
-{'ingles': 'feet', 'portugues':'pés'},
+  { ingles: "second", portugues: "segundo" },
 
-{'ingles': 'care', 'portugues':'cuidado'},
+  { ingles: "book", portugues: "livro" },
 
-{'ingles': 'second', 'portugues':'segundo'},
+  { ingles: "carry", portugues: "carregar" },
 
-{'ingles': 'book', 'portugues':'livro'},
+  { ingles: "took", portugues: "pego" },
 
-{'ingles': 'carry', 'portugues':'carregar'},
+  { ingles: "science", portugues: "ciência" },
 
-{'ingles': 'took', 'portugues':'pego'},
+  { ingles: "eat", portugues: "comer" },
 
-{'ingles': 'science', 'portugues':'ciência'},
+  { ingles: "room", portugues: "quarto" },
 
-{'ingles': 'eat', 'portugues':'comer'},
+  { ingles: "friend", portugues: "amigo" },
 
-{'ingles': 'room', 'portugues':'quarto'},
+  { ingles: "sight", portugues: "visão" },
 
-{'ingles': 'friend', 'portugues':'amigo'},
+  { ingles: "began", portugues: "começado" },
 
-{'ingles': 'sight', 'portugues':'visão'},
+  { ingles: "idea", portugues: "idéia" },
 
-{'ingles': 'began', 'portugues':'começado'},
+  { ingles: "fish", portugues: "peixe" },
 
-{'ingles': 'idea', 'portugues':'idéia'},
+  { ingles: "mountain", portugues: "montanha" },
 
-{'ingles': 'fish', 'portugues':'peixe'},
+  { ingles: "stop", portugues: "parar" },
 
-{'ingles': 'mountain', 'portugues':'montanha'},
+  { ingles: "once", portugues: "uma-vez" },
 
-{'ingles': 'stop', 'portugues':'parar'},
+  { ingles: "base", portugues: "base" },
 
-{'ingles': 'once', 'portugues':'uma-vez'},
+  { ingles: "hear", portugues: "ouvir" },
 
-{'ingles': 'base', 'portugues':'base'},
+  { ingles: "horse", portugues: "cavalo" },
 
-{'ingles': 'hear', 'portugues':'ouvir'},
+  { ingles: "cut", portugues: "cortar" },
 
-{'ingles': 'horse', 'portugues':'cavalo'},
+  { ingles: "sure", portugues: "certo" },
 
-{'ingles': 'cut', 'portugues':'cortar'},
+  { ingles: "watch", portugues: "assistir, relógio" },
 
-{'ingles': 'sure', 'portugues':'certo'},
+  { ingles: "color", portugues: "cor, colorir" },
 
-{'ingles': 'watch', 'portugues':'assistir, relógio'},
+  { ingles: "face", portugues: "rosto" },
 
-{'ingles': 'color', 'portugues':'cor, colorir'},
+  { ingles: "wood", portugues: "madeira" },
 
-{'ingles': 'face', 'portugues':'rosto'},
+  { ingles: "main", portugues: "principal" },
 
-{'ingles': 'wood', 'portugues':'madeira'},
+  { ingles: "enough", portugues: "bastante" },
 
-{'ingles': 'main', 'portugues':'principal'},
+  { ingles: "plain", portugues: "plano, simples" },
 
-{'ingles': 'enough', 'portugues':'bastante'},
+  { ingles: "girl", portugues: "garota" },
 
-{'ingles': 'plain', 'portugues':'plano, simples'},
+  { ingles: "usual", portugues: "usual, comum" },
 
-{'ingles': 'girl', 'portugues':'garota'},
+  { ingles: "young", portugues: "jovem" },
 
-{'ingles': 'usual', 'portugues':'usual, comum'},
+  { ingles: "ready", portugues: "pronto" },
 
-{'ingles': 'young', 'portugues':'jovem'},
+  { ingles: "above", portugues: "acima" },
 
-{'ingles': 'ready', 'portugues':'pronto'},
+  { ingles: "ever", portugues: "sempre, já" },
 
-{'ingles': 'above', 'portugues':'acima'},
+  { ingles: "red", portugues: "vermelho" },
 
-{'ingles': 'ever', 'portugues':'sempre, já'},
+  { ingles: "list", portugues: "lista" },
 
-{'ingles': 'red', 'portugues':'vermelho'},
+  { ingles: "though", portugues: "embora" },
 
-{'ingles': 'list', 'portugues':'lista'},
+  { ingles: "feel", portugues: "sentir" },
 
-{'ingles': 'though', 'portugues':'embora'},
+  { ingles: "talk", portugues: "conversar" },
 
-{'ingles': 'feel', 'portugues':'sentir'},
+  { ingles: "bird", portugues: "pássaro" },
 
-{'ingles': 'talk', 'portugues':'conversar'},
+  { ingles: "soon", portugues: "logo" },
 
-{'ingles': 'bird', 'portugues':'pássaro'},
+  { ingles: "body", portugues: "corpo" },
 
-{'ingles': 'soon', 'portugues':'logo'},
+  { ingles: "dog", portugues: "cachorro" },
 
-{'ingles': 'body', 'portugues':'corpo'},
+  { ingles: "family", portugues: "família" },
 
-{'ingles': 'dog', 'portugues':'cachorro'},
+  { ingles: "direct", portugues: "direto" },
 
-{'ingles': 'family', 'portugues':'família'},
+  { ingles: "pose", portugues: "posição" },
 
-{'ingles': 'direct', 'portugues':'direto'},
+  { ingles: "leave", portugues: "deixar" },
 
-{'ingles': 'pose', 'portugues':'posição'},
+  { ingles: "song", portugues: "canção" },
 
-{'ingles': 'leave', 'portugues':'deixar'},
+  { ingles: "measure", portugues: "medida" },
 
-{'ingles': 'song', 'portugues':'canção'},
+  { ingles: "door", portugues: "porta" },
 
-{'ingles': 'measure', 'portugues':'medida'},
+  { ingles: "product", portugues: "produto" },
 
-{'ingles': 'door', 'portugues':'porta'},
+  { ingles: "black", portugues: "negro" },
 
-{'ingles': 'product', 'portugues':'produto'},
+  { ingles: "short", portugues: "curto" },
 
-{'ingles': 'black', 'portugues':'negro'},
+  { ingles: "numeral", portugues: "numeral" },
 
-{'ingles': 'short', 'portugues':'curto'},
+  { ingles: "class", portugues: "classe" },
 
-{'ingles': 'numeral', 'portugues':'numeral'},
+  { ingles: "wind", portugues: "vento" },
 
-{'ingles': 'class', 'portugues':'classe'},
+  { ingles: "question", portugues: "questão, pergunta" },
 
-{'ingles': 'wind', 'portugues':'vento'},
+  { ingles: "happen", portugues: "acontecer" },
 
-{'ingles': 'question', 'portugues':'questão, pergunta'},
+  { ingles: "complete", portugues: "completo" },
 
-{'ingles': 'happen', 'portugues':'acontecer'},
+  { ingles: "ship", portugues: "navio, embarcar" },
 
-{'ingles': 'complete', 'portugues':'completo'},
+  { ingles: "area", portugues: "área" },
 
-{'ingles': 'ship', 'portugues':'navio, embarcar'},
+  { ingles: "half", portugues: "metade" },
 
-{'ingles': 'area', 'portugues':'área'},
+  { ingles: "rock", portugues: "roque, rocha" },
 
-{'ingles': 'half', 'portugues':'metade'},
+  { ingles: "order", portugues: "ordem, pedido" },
 
-{'ingles': 'rock', 'portugues':'roque, rocha'},
+  { ingles: "fire", portugues: "fogo" },
 
-{'ingles': 'order', 'portugues':'ordem, pedido'},
+  { ingles: "south", portugues: "sul" },
 
-{'ingles': 'fire', 'portugues':'fogo'},
+  { ingles: "problem", portugues: "problema" },
 
-{'ingles': 'south', 'portugues':'sul'},
+  { ingles: "piece", portugues: "peça, pedaço" },
 
-{'ingles': 'problem', 'portugues':'problema'},
+  { ingles: "told", portugues: "contado" },
 
-{'ingles': 'piece', 'portugues':'peça, pedaço'},
+  { ingles: "knew", portugues: "sabido" },
 
-{'ingles': 'told', 'portugues':'contado'},
+  { ingles: "pass", portugues: "passar" },
 
-{'ingles': 'knew', 'portugues':'sabido'},
+  { ingles: "since", portugues: "desde" },
 
-{'ingles': 'pass', 'portugues':'passar'},
+  { ingles: "top", portugues: "topo, principal" },
 
-{'ingles': 'since', 'portugues':'desde'},
+  { ingles: "whole", portugues: "inteiro" },
 
-{'ingles': 'top', 'portugues':'topo, principal'},
+  { ingles: "king", portugues: "rei" },
 
-{'ingles': 'whole', 'portugues':'inteiro'},
+  { ingles: "space", portugues: "espaço" },
 
-{'ingles': 'king', 'portugues':'rei'},
+  { ingles: "heard", portugues: "ouvido" },
 
-{'ingles': 'space', 'portugues':'espaço'},
+  { ingles: "best", portugues: "melhor" },
 
-{'ingles': 'heard', 'portugues':'ouvido'},
+  { ingles: "hour", portugues: "hora" },
 
-{'ingles': 'best', 'portugues':'melhor'},
+  { ingles: "better", portugues: "melhor" },
 
-{'ingles': 'hour', 'portugues':'hora'},
+  { ingles: "true", portugues: "verdadeiro" },
 
-{'ingles': 'better', 'portugues':'melhor'},
+  { ingles: "during", portugues: "durante" },
 
-{'ingles': 'true', 'portugues':'verdadeiro'},
+  { ingles: "hundred", portugues: "cem" },
 
-{'ingles': 'during', 'portugues':'durante'},
+  { ingles: "five", portugues: "cinco" },
 
-{'ingles': 'hundred', 'portugues':'cem'},
+  { ingles: "remember", portugues: "lembrar" },
 
-{'ingles': 'five', 'portugues':'cinco'},
+  { ingles: "step", portugues: "passo" },
 
-{'ingles': 'remember', 'portugues':'lembrar'},
+  { ingles: "early", portugues: "cedo" },
 
-{'ingles': 'step', 'portugues':'passo'},
+  { ingles: "hold", portugues: "guardar" },
 
-{'ingles': 'early', 'portugues':'cedo'},
+  { ingles: "west", portugues: "oeste" },
 
-{'ingles': 'hold', 'portugues':'guardar'},
+  { ingles: "ground", portugues: "terra, amolado" },
 
-{'ingles': 'west', 'portugues':'oeste'},
+  { ingles: "interest", portugues: "interesse" },
 
-{'ingles': 'ground', 'portugues':'terra, amolado'},
+  { ingles: "reach", portugues: "alcançar" },
 
-{'ingles': 'interest', 'portugues':'interesse'},
+  { ingles: "fast", portugues: "rápido" },
 
-{'ingles': 'reach', 'portugues':'alcançar'},
+  { ingles: "verb", portugues: "verbo" },
 
-{'ingles': 'fast', 'portugues':'rápido'},
+  { ingles: "sing", portugues: "cantar" },
 
-{'ingles': 'verb', 'portugues':'verbo'},
+  { ingles: "listen", portugues: "ouvir" },
 
-{'ingles': 'sing', 'portugues':'cantar'},
+  { ingles: "six", portugues: "seis" },
 
-{'ingles': 'listen', 'portugues':'ouvir'},
+  { ingles: "table", portugues: "mesa, tabela" },
 
-{'ingles': 'six', 'portugues':'seis'},
+  { ingles: "travel", portugues: "viajar" },
 
-{'ingles': 'table', 'portugues':'mesa, tabela'},
+  { ingles: "less", portugues: "menos" },
 
-{'ingles': 'travel', 'portugues':'viajar'},
+  { ingles: "morning", portugues: "manhã" },
 
-{'ingles': 'less', 'portugues':'menos'},
+  { ingles: "ten", portugues: "dez" },
 
-{'ingles': 'morning', 'portugues':'manhã'},
+  { ingles: "simple", portugues: "simples" },
 
-{'ingles': 'ten', 'portugues':'dez'},
+  { ingles: "several", portugues: "vários" },
 
-{'ingles': 'simple', 'portugues':'simples'},
+  { ingles: "vowel", portugues: "vogal" },
 
-{'ingles': 'several', 'portugues':'vários'},
+  { ingles: "toward", portugues: "para" },
 
-{'ingles': 'vowel', 'portugues':'vogal'},
+  { ingles: "war", portugues: "guerra" },
 
-{'ingles': 'toward', 'portugues':'para'},
+  { ingles: "lay", portugues: "deitar, amador" },
 
-{'ingles': 'war', 'portugues':'guerra'},
+  { ingles: "against", portugues: "contra" },
 
-{'ingles': 'lay', 'portugues':'deitar, amador'},
+  { ingles: "pattern", portugues: "padrão" },
 
-{'ingles': 'against', 'portugues':'contra'},
+  { ingles: "slow", portugues: "devagar" },
 
-{'ingles': 'pattern', 'portugues':'padrão'},
+  { ingles: "center", portugues: "centro" },
 
-{'ingles': 'slow', 'portugues':'devagar'},
+  { ingles: "love", portugues: "amor, amar" },
 
-{'ingles': 'center', 'portugues':'centro'},
+  { ingles: "person", portugues: "pessoa" },
 
-{'ingles': 'love', 'portugues':'amor, amar'},
+  { ingles: "money", portugues: "dinheiro" },
 
-{'ingles': 'person', 'portugues':'pessoa'},
+  { ingles: "serve", portugues: "servir" },
 
-{'ingles': 'money', 'portugues':'dinheiro'},
+  { ingles: "appear", portugues: "aparecer" },
 
-{'ingles': 'serve', 'portugues':'servir'},
+  { ingles: "road", portugues: "estrada" },
 
-{'ingles': 'appear', 'portugues':'aparecer'},
+  { ingles: "map", portugues: "mapa" },
 
-{'ingles': 'road', 'portugues':'estrada'},
+  { ingles: "rain", portugues: "chuva" },
 
-{'ingles': 'map', 'portugues':'mapa'},
+  { ingles: "rule", portugues: "régua, regra" },
 
-{'ingles': 'rain', 'portugues':'chuva'},
+  { ingles: "govern", portugues: "governar" },
 
-{'ingles': 'rule', 'portugues':'régua, regra'},
+  { ingles: "pull", portugues: "puxar" },
 
-{'ingles': 'govern', 'portugues':'governar'},
+  { ingles: "cold", portugues: "frio" },
 
-{'ingles': 'pull', 'portugues':'puxar'},
+  { ingles: "notice", portugues: "aviso" },
 
-{'ingles': 'cold', 'portugues':'frio'},
+  { ingles: "voice", portugues: "voz" },
 
-{'ingles': 'notice', 'portugues':'aviso'},
+  { ingles: "unit", portugues: "unidade" },
 
-{'ingles': 'voice', 'portugues':'voz'},
+  { ingles: "power", portugues: "poder, força" },
 
-{'ingles': 'unit', 'portugues':'unidade'},
+  { ingles: "town", portugues: "municipal" },
 
-{'ingles': 'power', 'portugues':'poder, força'},
+  { ingles: "fine", portugues: "bom, excelente" },
 
-{'ingles': 'town', 'portugues':'municipal'},
+  { ingles: "certain", portugues: "certo" },
 
-{'ingles': 'fine', 'portugues':'bom, excelente'},
+  { ingles: "fly", portugues: "voar, mosca" },
 
-{'ingles': 'certain', 'portugues':'certo'},
+  { ingles: "fall", portugues: "cair, queda, outono" },
 
-{'ingles': 'fly', 'portugues':'voar, mosca'},
+  { ingles: "lead", portugues: "levar, chumbo" },
 
-{'ingles': 'fall', 'portugues':'cair, queda, outono'},
+  { ingles: "cry", portugues: "choro, chorar" },
 
-{'ingles': 'lead', 'portugues':'levar, chumbo'},
+  { ingles: "dark", portugues: "escuro" },
 
-{'ingles': 'cry', 'portugues':'choro, chorar'},
+  { ingles: "machine", portugues: "máquina" },
 
-{'ingles': 'dark', 'portugues':'escuro'},
+  { ingles: "note", portugues: "anotar" },
 
-{'ingles': 'machine', 'portugues':'máquina'},
+  { ingles: "wait", portugues: "esperar" },
 
-{'ingles': 'note', 'portugues':'anotar'},
+  { ingles: "plan", portugues: "plano" },
 
-{'ingles': 'wait', 'portugues':'esperar'},
+  { ingles: "figure", portugues: "figura, imaginar" },
 
-{'ingles': 'plan', 'portugues':'plano'},
+  { ingles: "star", portugues: "estrela" },
 
-{'ingles': 'figure', 'portugues':'figura, imaginar'},
+  { ingles: "box", portugues: "caixa" },
 
-{'ingles': 'star', 'portugues':'estrela'},
+  { ingles: "noun", portugues: "substantivo" },
 
-{'ingles': 'box', 'portugues':'caixa'},
+  { ingles: "field", portugues: "campo" },
 
-{'ingles': 'noun', 'portugues':'substantivo'},
+  { ingles: "rest", portugues: "resto, descanso" },
 
-{'ingles': 'field', 'portugues':'campo'},
+  { ingles: "correct", portugues: "correto" },
 
-{'ingles': 'rest', 'portugues':'resto, descanso'},
+  { ingles: "able", portugues: "capaz" },
 
-{'ingles': 'correct', 'portugues':'correto'},
+  { ingles: "pound", portugues: "libra" },
 
-{'ingles': 'able', 'portugues':'capaz'},
+  { ingles: "done", portugues: "feito" },
 
-{'ingles': 'pound', 'portugues':'libra'},
+  { ingles: "beauty", portugues: "beleza" },
 
-{'ingles': 'done', 'portugues':'feito'},
+  { ingles: "drive", portugues: "direção, dirigir" },
 
-{'ingles': 'beauty', 'portugues':'beleza'},
+  { ingles: "stood", portugues: "permanecido" },
 
-{'ingles': 'drive', 'portugues':'direção, dirigir'},
+  { ingles: "contain", portugues: "conter" },
 
-{'ingles': 'stood', 'portugues':'permanecido'},
+  { ingles: "front", portugues: "frente" },
 
-{'ingles': 'contain', 'portugues':'conter'},
+  { ingles: "teach", portugues: "ensinar" },
 
-{'ingles': 'front', 'portugues':'frente'},
+  { ingles: "week", portugues: "semana" },
 
-{'ingles': 'teach', 'portugues':'ensinar'},
+  { ingles: "final", portugues: "final" },
 
-{'ingles': 'week', 'portugues':'semana'},
+  { ingles: "gave", portugues: "dado" },
 
-{'ingles': 'final', 'portugues':'final'},
+  { ingles: "green", portugues: "verde" },
 
-{'ingles': 'gave', 'portugues':'dado'},
+  { ingles: "oh", portugues: "ó" },
 
-{'ingles': 'green', 'portugues':'verde'},
+  { ingles: "quick", portugues: "rápido" },
 
-{'ingles': 'oh', 'portugues':'ó'},
+  { ingles: "develop", portugues: "desenvolver" },
 
-{'ingles': 'quick', 'portugues':'rápido'},
+  { ingles: "ocean", portugues: "oceano" },
 
-{'ingles': 'develop', 'portugues':'desenvolver'},
+  { ingles: "warm", portugues: "quente" },
 
-{'ingles': 'ocean', 'portugues':'oceano'},
+  { ingles: "free", portugues: "livre, grátis" },
 
-{'ingles': 'warm', 'portugues':'quente'},
+  { ingles: "minute", portugues: "minuto" },
 
-{'ingles': 'free', 'portugues':'livre, grátis'},
+  { ingles: "strong", portugues: "forte" },
 
-{'ingles': 'minute', 'portugues':'minuto'},
+  { ingles: "special", portugues: "especial" },
 
-{'ingles': 'strong', 'portugues':'forte'},
+  { ingles: "mind", portugues: "mente" },
 
-{'ingles': 'special', 'portugues':'especial'},
+  { ingles: "behind", portugues: "atrás" },
 
-{'ingles': 'mind', 'portugues':'mente'},
+  { ingles: "clear", portugues: "claro" },
 
-{'ingles': 'behind', 'portugues':'atrás'},
+  { ingles: "tail", portugues: "rabo" },
 
-{'ingles': 'clear', 'portugues':'claro'},
+  { ingles: "produce", portugues: "produção" },
 
-{'ingles': 'tail', 'portugues':'rabo'},
+  { ingles: "fact", portugues: "fato" },
 
-{'ingles': 'produce', 'portugues':'produção'},
+  { ingles: "street", portugues: "rua" },
 
-{'ingles': 'fact', 'portugues':'fato'},
+  { ingles: "inch", portugues: "polegada" },
 
-{'ingles': 'street', 'portugues':'rua'},
+  { ingles: "multiply", portugues: "multiplicar" },
 
-{'ingles': 'inch', 'portugues':'polegada'},
+  { ingles: "nothing", portugues: "nada" },
 
-{'ingles': 'multiply', 'portugues':'multiplicar'},
+  { ingles: "course", portugues: "curso" },
 
-{'ingles': 'nothing', 'portugues':'nada'},
+  { ingles: "stay", portugues: "ficar" },
 
-{'ingles': 'course', 'portugues':'curso'},
+  { ingles: "wheel", portugues: "roda" },
 
-{'ingles': 'stay', 'portugues':'ficar'},
+  { ingles: "full", portugues: "cheio" },
 
-{'ingles': 'wheel', 'portugues':'roda'},
+  { ingles: "force", portugues: "força, forçar" },
 
-{'ingles': 'full', 'portugues':'cheio'},
+  { ingles: "blue", portugues: "azul" },
 
-{'ingles': 'force', 'portugues':'força, forçar'},
+  { ingles: "object", portugues: "objeto" },
 
-{'ingles': 'blue', 'portugues':'azul'},
+  { ingles: "decide", portugues: "decidir" },
 
-{'ingles': 'object', 'portugues':'objeto'},
+  { ingles: "surface", portugues: "superficie" },
 
-{'ingles': 'decide', 'portugues':'decidir'},
+  { ingles: "deep", portugues: "profundo" },
 
-{'ingles': 'surface', 'portugues':'superficie'},
+  { ingles: "moon", portugues: "lua" },
 
-{'ingles': 'deep', 'portugues':'profundo'},
+  { ingles: "island", portugues: "ilha" },
 
-{'ingles': 'moon', 'portugues':'lua'},
+  { ingles: "foot", portugues: "pé" },
 
-{'ingles': 'island', 'portugues':'ilha'},
+  { ingles: "system", portugues: "sistema" },
 
-{'ingles': 'foot', 'portugues':'pé'},
+  { ingles: "busy", portugues: "ocupado" },
 
-{'ingles': 'system', 'portugues':'sistema'},
+  { ingles: "test", portugues: "teste" },
 
-{'ingles': 'busy', 'portugues':'ocupado'},
+  { ingles: "record", portugues: "recorde, gravar, registro" },
 
-{'ingles': 'test', 'portugues':'teste'},
+  { ingles: "boat", portugues: "barco" },
 
-{'ingles': 'record', 'portugues':'recorde, gravar, registro'},
+  { ingles: "common", portugues: "comum" },
 
-{'ingles': 'boat', 'portugues':'barco'},
+  { ingles: "gold", portugues: "ouro" },
 
-{'ingles': 'common', 'portugues':'comum'},
+  { ingles: "possible", portugues: "possível" },
 
-{'ingles': 'gold', 'portugues':'ouro'},
+  { ingles: "plane", portugues: "avião" },
 
-{'ingles': 'possible', 'portugues':'possível'},
+  { ingles: "stead", portugues: "local" },
 
-{'ingles': 'plane', 'portugues':'avião'},
+  { ingles: "dry", portugues: "seco" },
 
-{'ingles': 'stead', 'portugues':'local'},
+  { ingles: "wonder", portugues: "admirar" },
 
-{'ingles': 'dry', 'portugues':'seco'},
+  { ingles: "laugh", portugues: "rir" },
 
-{'ingles': 'wonder', 'portugues':'admirar'},
+  { ingles: "thousand", portugues: "mil" },
 
-{'ingles': 'laugh', 'portugues':'rir'},
+  { ingles: "ago", portugues: "atrás" },
 
-{'ingles': 'thousand', 'portugues':'mil'},
+  { ingles: "ran", portugues: "corrido" },
 
-{'ingles': 'ago', 'portugues':'atrás'},
+  { ingles: "check", portugues: "cheque, checagem" },
 
-{'ingles': 'ran', 'portugues':'corrido'},
+  { ingles: "game", portugues: "jogo" },
 
-{'ingles': 'check', 'portugues':'cheque, checagem'},
+  { ingles: "shape", portugues: "forma" },
 
-{'ingles': 'game', 'portugues':'jogo'},
+  { ingles: "equate", portugues: "equacionar" },
 
-{'ingles': 'shape', 'portugues':'forma'},
+  { ingles: "miss", portugues: "sentir, senhorita" },
 
-{'ingles': 'equate', 'portugues':'equacionar'},
+  { ingles: "brought", portugues: "trazido" },
 
-{'ingles': 'miss', 'portugues':'sentir, senhorita'},
+  { ingles: "heat", portugues: "calor" },
 
-{'ingles': 'brought', 'portugues':'trazido'},
+  { ingles: "snow", portugues: "neve" },
 
-{'ingles': 'heat', 'portugues':'calor'},
+  { ingles: "tire", portugues: "pneu, cansar" },
 
-{'ingles': 'snow', 'portugues':'neve'},
+  { ingles: "bring", portugues: "trazer" },
 
-{'ingles': 'tire', 'portugues':'pneu, cansar'},
+  { ingles: "yes", portugues: "sim" },
 
-{'ingles': 'bring', 'portugues':'trazer'},
+  { ingles: "distant", portugues: "distante" },
 
-{'ingles': 'yes', 'portugues':'sim'},
+  { ingles: "fill", portugues: "encher" },
 
-{'ingles': 'distant', 'portugues':'distante'},
+  { ingles: "east", portugues: "leste" },
 
-{'ingles': 'fill', 'portugues':'encher'},
+  { ingles: "paint", portugues: "pintar" },
 
-{'ingles': 'east', 'portugues':'leste'},
+  { ingles: "language", portugues: "língua" },
 
-{'ingles': 'paint', 'portugues':'pintar'},
+  { ingles: "among", portugues: "entre" },
 
-{'ingles': 'language', 'portugues':'língua'},
+  { ingles: "grand", portugues: "grandioso" },
 
-{'ingles': 'among', 'portugues':'entre'},
+  { ingles: "ball", portugues: "bola" },
 
-{'ingles': 'grand', 'portugues':'grandioso'},
+  { ingles: "yet", portugues: "ainda, já" },
 
-{'ingles': 'ball', 'portugues':'bola'},
+  { ingles: "wave", portugues: "onda" },
 
-{'ingles': 'yet', 'portugues':'ainda, já'},
+  { ingles: "drop", portugues: "gota" },
 
-{'ingles': 'wave', 'portugues':'onda'},
+  { ingles: "heart", portugues: "coração" },
 
-{'ingles': 'drop', 'portugues':'gota'},
+  { ingles: "am", portugues: "sou, estou" },
 
-{'ingles': 'heart', 'portugues':'coração'},
+  { ingles: "present", portugues: "presente" },
 
-{'ingles': 'am', 'portugues':'sou, estou'},
+  { ingles: "heavy", portugues: "pesado" },
 
-{'ingles': 'present', 'portugues':'presente'},
+  { ingles: "dance", portugues: "dança" },
 
-{'ingles': 'heavy', 'portugues':'pesado'},
+  { ingles: "engine", portugues: "motor" },
 
-{'ingles': 'dance', 'portugues':'dança'},
+  { ingles: "position", portugues: "posição" },
 
-{'ingles': 'engine', 'portugues':'motor'},
+  { ingles: "arm", portugues: "braço" },
 
-{'ingles': 'position', 'portugues':'posição'},
+  { ingles: "wide", portugues: "amplo" },
 
-{'ingles': 'arm', 'portugues':'braço'},
+  { ingles: "sail", portugues: "vela" },
 
-{'ingles': 'wide', 'portugues':'amplo'},
+  { ingles: "material", portugues: "material" },
 
-{'ingles': 'sail', 'portugues':'vela'},
+  { ingles: "size", portugues: "tamanho" },
 
-{'ingles': 'material', 'portugues':'material'},
+  { ingles: "vary", portugues: "variar" },
 
-{'ingles': 'size', 'portugues':'tamanho'},
+  { ingles: "settle", portugues: "estabelecer" },
 
-{'ingles': 'vary', 'portugues':'variar'},
+  { ingles: "speak", portugues: "falar" },
 
-{'ingles': 'settle', 'portugues':'estabelecer'},
+  { ingles: "weight", portugues: "peso" },
 
-{'ingles': 'speak', 'portugues':'falar'},
+  { ingles: "general", portugues: "general, geral" },
 
-{'ingles': 'weight', 'portugues':'peso'},
+  { ingles: "ice", portugues: "gelo" },
 
-{'ingles': 'general', 'portugues':'general, geral'},
+  { ingles: "matter", portugues: "matéria, importam" },
 
-{'ingles': 'ice', 'portugues':'gelo'},
+  { ingles: "circle", portugues: "círculo" },
 
-{'ingles': 'matter', 'portugues':'matéria, importam'},
+  { ingles: "pair", portugues: "par" },
 
-{'ingles': 'circle', 'portugues':'círculo'},
+  { ingles: "include", portugues: "incluir" },
 
-{'ingles': 'pair', 'portugues':'par'},
+  { ingles: "divide", portugues: "dividir" },
 
-{'ingles': 'include', 'portugues':'incluir'},
+  { ingles: "syllable", portugues: "sílaba" },
 
-{'ingles': 'divide', 'portugues':'dividir'},
+  { ingles: "felt", portugues: "sentido" },
 
-{'ingles': 'syllable', 'portugues':'sílaba'},
+  { ingles: "perhaps", portugues: "talvez" },
 
-{'ingles': 'felt', 'portugues':'sentido'},
+  { ingles: "pick", portugues: "escolher, apanhar" },
 
-{'ingles': 'perhaps', 'portugues':'talvez'},
+  { ingles: "sudden", portugues: "imprevisto" },
 
-{'ingles': 'pick', 'portugues':'escolher, apanhar'},
+  { ingles: "count", portugues: "contar, contagem, conde" },
 
-{'ingles': 'sudden', 'portugues':'imprevisto'},
+  { ingles: "square", portugues: "quadrado, praça" },
 
-{'ingles': 'count', 'portugues':'contar, contagem, conde'},
+  { ingles: "reason", portugues: "razão" },
 
-{'ingles': 'square', 'portugues':'quadrado, praça'},
+  { ingles: "length", portugues: "comprimento" },
 
-{'ingles': 'reason', 'portugues':'razão'},
+  { ingles: "represent", portugues: "representar" },
 
-{'ingles': 'length', 'portugues':'comprimento'},
+  { ingles: "art", portugues: "arte" },
 
-{'ingles': 'represent', 'portugues':'representar'},
+  { ingles: "subject", portugues: "sujeito, assunto" },
 
-{'ingles': 'art', 'portugues':'arte'},
+  { ingles: "region", portugues: "região" },
 
-{'ingles': 'subject', 'portugues':'sujeito, assunto'},
+  { ingles: "energy", portugues: "energia" },
 
-{'ingles': 'region', 'portugues':'região'},
+  { ingles: "hunt", portugues: "caçar" },
 
-{'ingles': 'energy', 'portugues':'energia'},
+  { ingles: "probable", portugues: "provável" },
 
-{'ingles': 'hunt', 'portugues':'caçar'},
+  { ingles: "bed", portugues: "cama" },
 
-{'ingles': 'probable', 'portugues':'provável'},
+  { ingles: "brother", portugues: "irmão" },
 
-{'ingles': 'bed', 'portugues':'cama'},
+  { ingles: "egg", portugues: "ovo" },
 
-{'ingles': 'brother', 'portugues':'irmão'},
+  { ingles: "ride", portugues: "passeio" },
 
-{'ingles': 'egg', 'portugues':'ovo'},
+  { ingles: "cell", portugues: "cela, célula" },
 
-{'ingles': 'ride', 'portugues':'passeio'},
+  { ingles: "believe", portugues: "acreditar" },
 
-{'ingles': 'cell', 'portugues':'cela, célula'},
+  { ingles: "fraction", portugues: "fração" },
 
-{'ingles': 'believe', 'portugues':'acreditar'},
+  { ingles: "forest", portugues: "floresta" },
 
-{'ingles': 'fraction', 'portugues':'fração'},
+  { ingles: "sit", portugues: "sentar" },
 
-{'ingles': 'forest', 'portugues':'floresta'},
+  { ingles: "race", portugues: "raça, corrida" },
 
-{'ingles': 'sit', 'portugues':'sentar'},
+  { ingles: "window", portugues: "janela" },
 
-{'ingles': 'race', 'portugues':'raça, corrida'},
+  { ingles: "store", portugues: "armazém" },
 
-{'ingles': 'window', 'portugues':'janela'},
+  { ingles: "summer", portugues: "verão" },
 
-{'ingles': 'store', 'portugues':'armazém'},
+  { ingles: "train", portugues: "trem, treinar" },
 
-{'ingles': 'summer', 'portugues':'verão'},
+  { ingles: "sleep", portugues: "dormir" },
 
-{'ingles': 'train', 'portugues':'trem, treinar'},
+  { ingles: "prove", portugues: "provar" },
 
-{'ingles': 'sleep', 'portugues':'dormir'},
+  { ingles: "lone", portugues: "só" },
 
-{'ingles': 'prove', 'portugues':'provar'},
+  { ingles: "leg", portugues: "perna" },
 
-{'ingles': 'lone', 'portugues':'só'},
+  { ingles: "exercise", portugues: "exercício" },
 
-{'ingles': 'leg', 'portugues':'perna'},
+  { ingles: "wall", portugues: "parede" },
 
-{'ingles': 'exercise', 'portugues':'exercício'},
+  { ingles: "catch", portugues: "pegar" },
 
-{'ingles': 'wall', 'portugues':'parede'},
+  { ingles: "mount", portugues: "monte, montar" },
 
-{'ingles': 'catch', 'portugues':'pegar'},
+  { ingles: "wish", portugues: "desejo" },
 
-{'ingles': 'mount', 'portugues':'monte, montar'},
+  { ingles: "sky", portugues: "céu" },
 
-{'ingles': 'wish', 'portugues':'desejo'},
+  { ingles: "board", portugues: "quadro" },
 
-{'ingles': 'sky', 'portugues':'céu'},
+  { ingles: "joy", portugues: "alegria" },
 
-{'ingles': 'board', 'portugues':'quadro'},
+  { ingles: "winter", portugues: "inverno" },
 
-{'ingles': 'joy', 'portugues':'alegria'},
+  { ingles: "sat", portugues: "sentado" },
 
-{'ingles': 'winter', 'portugues':'inverno'},
+  { ingles: "written", portugues: "escrito" },
 
-{'ingles': 'sat', 'portugues':'sentado'},
+  { ingles: "wild", portugues: "selvagem" },
 
-{'ingles': 'written', 'portugues':'escrito'},
+  { ingles: "instrument", portugues: "instrumento" },
 
-{'ingles': 'wild', 'portugues':'selvagem'},
+  { ingles: "kept", portugues: "guardado" },
 
-{'ingles': 'instrument', 'portugues':'instrumento'},
+  { ingles: "glass", portugues: "vidro" },
 
-{'ingles': 'kept', 'portugues':'guardado'},
+  { ingles: "grass", portugues: "grama" },
 
-{'ingles': 'glass', 'portugues':'vidro'},
+  { ingles: "cow", portugues: "vaca" },
 
-{'ingles': 'grass', 'portugues':'grama'},
+  { ingles: "job", portugues: "trabalho" },
 
-{'ingles': 'cow', 'portugues':'vaca'},
+  { ingles: "edge", portugues: "canto" },
 
-{'ingles': 'job', 'portugues':'trabalho'},
+  { ingles: "sign", portugues: "sinal" },
 
-{'ingles': 'edge', 'portugues':'canto'},
+  { ingles: "visit", portugues: "visita" },
 
-{'ingles': 'sign', 'portugues':'sinal'},
+  { ingles: "past", portugues: "passado" },
 
-{'ingles': 'visit', 'portugues':'visita'},
+  { ingles: "soft", portugues: "macio" },
 
-{'ingles': 'past', 'portugues':'passado'},
+  { ingles: "fun", portugues: "alegria" },
 
-{'ingles': 'soft', 'portugues':'macio'},
+  { ingles: "bright", portugues: "claro" },
 
-{'ingles': 'fun', 'portugues':'alegria'},
+  { ingles: "gas", portugues: "gás, gasolina" },
 
-{'ingles': 'bright', 'portugues':'claro'},
+  { ingles: "weather", portugues: "tempo" },
 
-{'ingles': 'gas', 'portugues':'gás, gasolina'},
+  { ingles: "month", portugues: "mês" },
 
-{'ingles': 'weather', 'portugues':'tempo'},
+  { ingles: "million", portugues: "milhão" },
 
-{'ingles': 'month', 'portugues':'mês'},
+  { ingles: "bear", portugues: "urso, carregar" },
 
-{'ingles': 'million', 'portugues':'milhão'},
+  { ingles: "finish", portugues: "fim, finalizar" },
 
-{'ingles': 'bear', 'portugues':'urso, carregar'},
+  { ingles: "happy", portugues: "feliz" },
 
-{'ingles': 'finish', 'portugues':'fim, finalizar'},
+  { ingles: "hope", portugues: "esperança" },
 
-{'ingles': 'happy', 'portugues':'feliz'},
+  { ingles: "flower", portugues: "flor" },
 
-{'ingles': 'hope', 'portugues':'esperança'},
+  { ingles: "clothe", portugues: "vestir" },
 
-{'ingles': 'flower', 'portugues':'flor'},
+  { ingles: "strange", portugues: "estranho" },
 
-{'ingles': 'clothe', 'portugues':'vestir'},
+  { ingles: "gone", portugues: "ido" },
 
-{'ingles': 'strange', 'portugues':'estranho'},
+  { ingles: "jump", portugues: "pular" },
 
-{'ingles': 'gone', 'portugues':'ido'},
+  { ingles: "baby", portugues: "bebê" },
 
-{'ingles': 'jump', 'portugues':'pular'},
+  { ingles: "eight", portugues: "oito" },
 
-{'ingles': 'baby', 'portugues':'bebê'},
+  { ingles: "village", portugues: "vila" },
 
-{'ingles': 'eight', 'portugues':'oito'},
+  { ingles: "meet", portugues: "encontrar" },
 
-{'ingles': 'village', 'portugues':'vila'},
+  { ingles: "root", portugues: "raiz" },
 
-{'ingles': 'meet', 'portugues':'encontrar'},
+  { ingles: "buy", portugues: "comprar" },
 
-{'ingles': 'root', 'portugues':'raiz'},
+  { ingles: "raise", portugues: "levantar" },
 
-{'ingles': 'buy', 'portugues':'comprar'},
+  { ingles: "solve", portugues: "resolver" },
 
-{'ingles': 'raise', 'portugues':'levantar'},
+  { ingles: "metal", portugues: "metal" },
 
-{'ingles': 'solve', 'portugues':'resolver'},
+  { ingles: "whether", portugues: "se" },
 
-{'ingles': 'metal', 'portugues':'metal'},
+  { ingles: "push", portugues: "empurrar, iniciativa" },
 
-{'ingles': 'whether', 'portugues':'se'},
+  { ingles: "seven", portugues: "sete" },
 
-{'ingles': 'push', 'portugues':'empurrar, iniciativa'},
+  { ingles: "paragraph", portugues: "parágrafo" },
 
-{'ingles': 'seven', 'portugues':'sete'},
+  { ingles: "third", portugues: "terceiro" },
 
-{'ingles': 'paragraph', 'portugues':'parágrafo'},
+  { ingles: "shall", portugues: "vai" },
 
-{'ingles': 'third', 'portugues':'terceiro'},
+  { ingles: "held", portugues: "guardado" },
 
-{'ingles': 'shall', 'portugues':'vai'},
+  { ingles: "hair", portugues: "cabelo" },
 
-{'ingles': 'held', 'portugues':'guardado'},
+  { ingles: "describe", portugues: "descrever" },
 
-{'ingles': 'hair', 'portugues':'cabelo'},
+  { ingles: "cook", portugues: "cozinhar" },
 
-{'ingles': 'describe', 'portugues':'descrever'},
+  { ingles: "floor", portugues: "chão, derrotar" },
 
-{'ingles': 'cook', 'portugues':'cozinhar'},
+  { ingles: "either", portugues: "um, ou outro, também" },
 
-{'ingles': 'floor', 'portugues':'chão, derrotar'},
+  { ingles: "result", portugues: "resultado" },
 
-{'ingles': 'either', 'portugues':'um, ou outro, também'},
+  { ingles: "burn", portugues: "queimar" },
 
-{'ingles': 'result', 'portugues':'resultado'},
+  { ingles: "hill", portugues: "colina" },
 
-{'ingles': 'burn', 'portugues':'queimar'},
+  { ingles: "safe", portugues: "seguro, cofre" },
 
-{'ingles': 'hill', 'portugues':'colina'},
+  { ingles: "cat", portugues: "gato" },
 
-{'ingles': 'safe', 'portugues':'seguro, cofre'},
+  { ingles: "century", portugues: "século" },
 
-{'ingles': 'cat', 'portugues':'gato'},
+  { ingles: "consider", portugues: "considerar" },
 
-{'ingles': 'century', 'portugues':'século'},
+  { ingles: "type", portugues: "tipo, datilografar" },
 
-{'ingles': 'consider', 'portugues':'considerar'},
+  { ingles: "law", portugues: "lei" },
 
-{'ingles': 'type', 'portugues':'tipo, datilografar'},
+  { ingles: "bit", portugues: "pouco, broca" },
 
-{'ingles': 'law', 'portugues':'lei'},
+  { ingles: "coast", portugues: "costa, litoral" },
 
-{'ingles': 'bit', 'portugues':'pouco, broca'},
+  { ingles: "copy", portugues: "copiar" },
 
-{'ingles': 'coast', 'portugues':'costa, litoral'},
+  { ingles: "phrase", portugues: "frase" },
 
-{'ingles': 'copy', 'portugues':'copiar'},
+  { ingles: "silent", portugues: "silencio" },
 
-{'ingles': 'phrase', 'portugues':'frase'},
+  { ingles: "tall", portugues: "alto" },
 
-{'ingles': 'silent', 'portugues':'silencio'},
+  { ingles: "sand", portugues: "areia" },
 
-{'ingles': 'tall', 'portugues':'alto'},
+  { ingles: "soil", portugues: "solo" },
 
-{'ingles': 'sand', 'portugues':'areia'},
+  { ingles: "roll", portugues: "giro, lista" },
 
-{'ingles': 'soil', 'portugues':'solo'},
+  { ingles: "temperature", portugues: "temperatura" },
 
-{'ingles': 'roll', 'portugues':'giro, lista'},
+  { ingles: "finger", portugues: "dedo" },
 
-{'ingles': 'temperature', 'portugues':'temperatura'},
+  { ingles: "industry", portugues: "indústria" },
 
-{'ingles': 'finger', 'portugues':'dedo'},
+  { ingles: "value", portugues: "valor" },
 
-{'ingles': 'industry', 'portugues':'indústria'},
+  { ingles: "fight", portugues: "luta" },
 
-{'ingles': 'value', 'portugues':'valor'},
+  { ingles: "lie", portugues: "deitar, mentir" },
 
-{'ingles': 'fight', 'portugues':'luta'},
+  { ingles: "beat", portugues: "bater" },
 
-{'ingles': 'lie', 'portugues':'deitar, mentir'},
+  { ingles: "excite", portugues: "instigar" },
 
-{'ingles': 'beat', 'portugues':'bater'},
+  { ingles: "natural", portugues: "natural" },
 
-{'ingles': 'excite', 'portugues':'instigar'},
+  { ingles: "view", portugues: "vista" },
 
-{'ingles': 'natural', 'portugues':'natural'},
+  { ingles: "sense", portugues: "sentido" },
 
-{'ingles': 'view', 'portugues':'vista'},
+  { ingles: "ear", portugues: "orelha, espiga" },
 
-{'ingles': 'sense', 'portugues':'sentido'},
+  { ingles: "else", portugues: "outro" },
 
-{'ingles': 'ear', 'portugues':'orelha, espiga'},
+  { ingles: "quite", portugues: "muito" },
 
-{'ingles': 'else', 'portugues':'outro'},
+  { ingles: "broke", portugues: "quebrado" },
 
-{'ingles': 'quite', 'portugues':'muito'},
+  { ingles: "case", portugues: "caso, embalagem" },
 
-{'ingles': 'broke', 'portugues':'quebrado'},
+  { ingles: "middle", portugues: "meio" },
 
-{'ingles': 'case', 'portugues':'caso, embalagem'},
+  { ingles: "kill", portugues: "matar" },
 
-{'ingles': 'middle', 'portugues':'meio'},
+  { ingles: "son", portugues: "filho" },
 
-{'ingles': 'kill', 'portugues':'matar'},
+  { ingles: "lake", portugues: "lago" },
 
-{'ingles': 'son', 'portugues':'filho'},
+  { ingles: "moment", portugues: "momento" },
 
-{'ingles': 'lake', 'portugues':'lago'},
+  { ingles: "scale", portugues: "escada, escala, escama" },
 
-{'ingles': 'moment', 'portugues':'momento'},
+  { ingles: "loud", portugues: "som alto" },
 
-{'ingles': 'scale', 'portugues':'escada, escala, escama'},
+  { ingles: "spring", portugues: "primavera, mola" },
 
-{'ingles': 'loud', 'portugues':'som alto'},
+  { ingles: "observe", portugues: "observar" },
 
-{'ingles': 'spring', 'portugues':'primavera, mola'},
+  { ingles: "child", portugues: "criança" },
 
-{'ingles': 'observe', 'portugues':'observar'},
+  { ingles: "straight", portugues: "reto" },
 
-{'ingles': 'child', 'portugues':'criança'},
+  { ingles: "consonant", portugues: "consoante" },
 
-{'ingles': 'straight', 'portugues':'reto'},
+  { ingles: "nation", portugues: "nação" },
 
-{'ingles': 'consonant', 'portugues':'consoante'},
+  { ingles: "dictionary", portugues: "dicionário" },
 
-{'ingles': 'nation', 'portugues':'nação'},
+  { ingles: "milk", portugues: "leite" },
 
-{'ingles': 'dictionary', 'portugues':'dicionário'},
+  { ingles: "speed", portugues: "velocidade" },
 
-{'ingles': 'milk', 'portugues':'leite'},
+  { ingles: "method", portugues: "método" },
 
-{'ingles': 'speed', 'portugues':'velocidade'},
+  { ingles: "organ", portugues: "órgão" },
 
-{'ingles': 'method', 'portugues':'método'},
+  { ingles: "pay", portugues: "pagar" },
 
-{'ingles': 'organ', 'portugues':'órgão'},
+  { ingles: "age", portugues: "idade" },
 
-{'ingles': 'pay', 'portugues':'pagar'},
+  { ingles: "section", portugues: "seção" },
 
-{'ingles': 'age', 'portugues':'idade'},
+  { ingles: "dress", portugues: "vestido" },
 
-{'ingles': 'section', 'portugues':'seção'},
+  { ingles: "cloud", portugues: "nuvem" },
 
-{'ingles': 'dress', 'portugues':'vestido'},
+  { ingles: "surprise", portugues: "surpresa" },
 
-{'ingles': 'cloud', 'portugues':'nuvem'},
+  { ingles: "quiet", portugues: "quieto" },
 
-{'ingles': 'surprise', 'portugues':'surpresa'},
+  { ingles: "stone", portugues: "pedra" },
 
-{'ingles': 'quiet', 'portugues':'quieto'},
+  { ingles: "tiny", portugues: "minúsculo" },
 
-{'ingles': 'stone', 'portugues':'pedra'},
+  { ingles: "climb", portugues: "escalar" },
 
-{'ingles': 'tiny', 'portugues':'minúsculo'},
+  { ingles: "cool", portugues: "frio" },
 
-{'ingles': 'climb', 'portugues':'escalar'},
+  { ingles: "design", portugues: "desenho" },
 
-{'ingles': 'cool', 'portugues':'frio'},
+  { ingles: "poor", portugues: "pobre" },
 
-{'ingles': 'design', 'portugues':'desenho'},
+  { ingles: "lot", portugues: "muito, lote" },
 
-{'ingles': 'poor', 'portugues':'pobre'},
+  { ingles: "experiment", portugues: "experimento" },
 
-{'ingles': 'lot', 'portugues':'muito, lote'},
+  { ingles: "bottom", portugues: "baixo" },
 
-{'ingles': 'experiment', 'portugues':'experimento'},
+  { ingles: "key", portugues: "chave" },
 
-{'ingles': 'bottom', 'portugues':'baixo'},
+  { ingles: "iron", portugues: "ferro" },
 
-{'ingles': 'key', 'portugues':'chave'},
+  { ingles: "single", portugues: "só, solteiro" },
 
-{'ingles': 'iron', 'portugues':'ferro'},
+  { ingles: "stick", portugues: "vareta, fincar" },
 
-{'ingles': 'single', 'portugues':'só, solteiro'},
+  { ingles: "flat", portugues: "achatado, plano" },
 
-{'ingles': 'stick', 'portugues':'vareta, fincar'},
+  { ingles: "twenty", portugues: "vinte" },
 
-{'ingles': 'flat', 'portugues':'achatado, plano'},
+  { ingles: "skin", portugues: "pele" },
 
-{'ingles': 'twenty', 'portugues':'vinte'},
+  { ingles: "smile", portugues: "sorriso" },
 
-{'ingles': 'skin', 'portugues':'pele'},
+  { ingles: "crease", portugues: "ruga" },
 
-{'ingles': 'smile', 'portugues':'sorriso'},
+  { ingles: "hole", portugues: "buraco" },
 
-{'ingles': 'crease', 'portugues':'ruga'},
+  { ingles: "trade", portugues: "comércio" },
 
-{'ingles': 'hole', 'portugues':'buraco'},
+  { ingles: "melody", portugues: "melodia" },
 
-{'ingles': 'trade', 'portugues':'comércio'},
+  { ingles: "trip", portugues: "viajar, passeio" },
 
-{'ingles': 'melody', 'portugues':'melodia'},
+  { ingles: "office", portugues: "escritório, função" },
 
-{'ingles': 'trip', 'portugues':'viajar, passeio'},
+  { ingles: "receive", portugues: "receber" },
 
-{'ingles': 'office', 'portugues':'escritório, função'},
+  { ingles: "row", portugues: "remar, fila" },
 
-{'ingles': 'receive', 'portugues':'receber'},
+  { ingles: "mouth", portugues: "boca" },
 
-{'ingles': 'row', 'portugues':'remar, fila'},
+  { ingles: "exact", portugues: "exato" },
 
-{'ingles': 'mouth', 'portugues':'boca'},
+  { ingles: "symbol", portugues: "símbol" },
 
-{'ingles': 'exact', 'portugues':'exato'},
+  { ingles: "die", portugues: "morrer" },
 
-{'ingles': 'symbol', 'portugues':'símbol'},
+  { ingles: "least", portugues: "menos" },
 
-{'ingles': 'die', 'portugues':'morrer'},
+  { ingles: "trouble", portugues: "preocupação" },
 
-{'ingles': 'least', 'portugues':'menos'},
+  { ingles: "shout", portugues: "gritar" },
 
-{'ingles': 'trouble', 'portugues':'preocupação'},
+  { ingles: "except", portugues: "exceto" },
 
-{'ingles': 'shout', 'portugues':'gritar'},
+  { ingles: "wrote", portugues: "escrito" },
 
-{'ingles': 'except', 'portugues':'exceto'},
+  { ingles: "seed", portugues: "semente" },
 
-{'ingles': 'wrote', 'portugues':'escrito'},
+  { ingles: "tone", portugues: "tom" },
 
-{'ingles': 'seed', 'portugues':'semente'},
+  { ingles: "join", portugues: "juntar" },
 
-{'ingles': 'tone', 'portugues':'tom'},
+  { ingles: "suggest", portugues: "sugerir" },
 
-{'ingles': 'join', 'portugues':'juntar'},
+  { ingles: "clean", portugues: "limpo" },
 
-{'ingles': 'suggest', 'portugues':'sugerir'},
+  { ingles: "break", portugues: "quebrar" },
 
-{'ingles': 'clean', 'portugues':'limpo'},
+  { ingles: "lady", portugues: "dama" },
 
-{'ingles': 'break', 'portugues':'quebrar'},
+  { ingles: "yard", portugues: "jarda, quintal" },
 
-{'ingles': 'lady', 'portugues':'dama'},
+  { ingles: "rise", portugues: "levantar" },
 
-{'ingles': 'yard', 'portugues':'jarda, quintal'},
+  { ingles: "bad", portugues: "mal" },
 
-{'ingles': 'rise', 'portugues':'levantar'},
+  { ingles: "blow", portugues: "assoprar" },
 
-{'ingles': 'bad', 'portugues':'mal'},
+  { ingles: "oil", portugues: "óleo, petróleo" },
 
-{'ingles': 'blow', 'portugues':'assoprar'},
+  { ingles: "blood", portugues: "sangue" },
 
-{'ingles': 'oil', 'portugues':'óleo, petróleo'},
+  { ingles: "touch", portugues: "tocar" },
 
-{'ingles': 'blood', 'portugues':'sangue'},
+  { ingles: "grew", portugues: "crescido" },
 
-{'ingles': 'touch', 'portugues':'tocar'},
+  { ingles: "cent", portugues: "centavo" },
 
-{'ingles': 'grew', 'portugues':'crescido'},
+  { ingles: "mix", portugues: "mistura" },
 
-{'ingles': 'cent', 'portugues':'centavo'},
+  { ingles: "team", portugues: "grupo" },
 
-{'ingles': 'mix', 'portugues':'mistura'},
+  { ingles: "wire", portugues: "arame" },
 
-{'ingles': 'team', 'portugues':'grupo'},
+  { ingles: "cost", portugues: "custo" },
 
-{'ingles': 'wire', 'portugues':'arame'},
+  { ingles: "lost", portugues: "perdido" },
 
-{'ingles': 'cost', 'portugues':'custo'},
+  { ingles: "brown", portugues: "marrom" },
 
-{'ingles': 'lost', 'portugues':'perdido'},
+  { ingles: "wear", portugues: "usar" },
 
-{'ingles': 'brown', 'portugues':'marrom'},
+  { ingles: "garden", portugues: "jardim" },
 
-{'ingles': 'wear', 'portugues':'usar'},
+  { ingles: "equal", portugues: "igual" },
 
-{'ingles': 'garden', 'portugues':'jardim'},
+  { ingles: "sent", portugues: "enviado" },
 
-{'ingles': 'equal', 'portugues':'igual'},
+  { ingles: "choose", portugues: "escolher" },
 
-{'ingles': 'sent', 'portugues':'enviado'},
+  { ingles: "fell", portugues: "caido" },
 
-{'ingles': 'choose', 'portugues':'escolher'},
+  { ingles: "fit", portugues: "ajustado" },
 
-{'ingles': 'fell', 'portugues':'caido'},
+  { ingles: "flow", portugues: "correr, corrente" },
 
-{'ingles': 'fit', 'portugues':'ajustado'},
+  { ingles: "fair", portugues: "feira, claro" },
 
-{'ingles': 'flow', 'portugues':'correr, corrente'},
+  { ingles: "bank", portugues: "banco" },
 
-{'ingles': 'fair', 'portugues':'feira, claro'},
+  { ingles: "collect", portugues: "recolher, pagar" },
 
-{'ingles': 'bank', 'portugues':'banco'},
+  { ingles: "save", portugues: "salvar" },
 
-{'ingles': 'collect', 'portugues':'recolher, pagar'},
+  { ingles: "control", portugues: "controle" },
 
-{'ingles': 'save', 'portugues':'salvar'},
+  { ingles: "decimal", portugues: "decimal" },
 
-{'ingles': 'control', 'portugues':'controle'},
+  { ingles: "gentle", portugues: "gentil" },
 
-{'ingles': 'decimal', 'portugues':'decimal'},
+  { ingles: "woman", portugues: "mulher" },
 
-{'ingles': 'gentle', 'portugues':'gentil'},
+  { ingles: "captain", portugues: "capitão" },
 
-{'ingles': 'woman', 'portugues':'mulher'},
+  { ingles: "practice", portugues: "prática" },
 
-{'ingles': 'captain', 'portugues':'capitão'},
+  { ingles: "separate", portugues: "sepârâtseparado" },
 
-{'ingles': 'practice', 'portugues':'prática'},
+  { ingles: "difficult", portugues: "difícil" },
 
-{'ingles': 'separate', 'portugues':'sepârâtseparado'},
+  { ingles: "doctor", portugues: "doutor" },
 
-{'ingles': 'difficult', 'portugues':'difícil'},
+  { ingles: "please", portugues: "por-favor" },
 
-{'ingles': 'doctor', 'portugues':'doutor'},
+  { ingles: "protect", portugues: "proteger" },
 
-{'ingles': 'please', 'portugues':'por-favor'},
+  { ingles: "noon", portugues: "meio-dia" },
 
-{'ingles': 'protect', 'portugues':'proteger'},
+  { ingles: "whose", portugues: "cujo" },
 
-{'ingles': 'noon', 'portugues':'meio-dia'},
+  { ingles: "locate", portugues: "localizar" },
 
-{'ingles': 'whose', 'portugues':'cujo'},
+  { ingles: "ring", portugues: "anel" },
 
-{'ingles': 'locate', 'portugues':'localizar'},
+  { ingles: "character", portugues: "caráter, personagem" },
 
-{'ingles': 'ring', 'portugues':'anel'},
+  { ingles: "insect", portugues: "inseto" },
 
-{'ingles': 'character', 'portugues':'caráter, personagem'},
+  { ingles: "caught", portugues: "pego" },
 
-{'ingles': 'insect', 'portugues':'inseto'},
+  { ingles: "period", portugues: "período" },
 
-{'ingles': 'caught', 'portugues':'pego'},
+  { ingles: "indicate", portugues: "indicar" },
 
-{'ingles': 'period', 'portugues':'período'},
+  { ingles: "radio", portugues: "rádio" },
 
-{'ingles': 'indicate', 'portugues':'indicar'},
+  { ingles: "spoke", portugues: "falado, raio" },
 
-{'ingles': 'radio', 'portugues':'rádio'},
+  { ingles: "atom", portugues: "átomo" },
 
-{'ingles': 'spoke', 'portugues':'falado, raio'},
+  { ingles: "human", portugues: "humano" },
 
-{'ingles': 'atom', 'portugues':'átomo'},
+  { ingles: "history", portugues: "história" },
 
-{'ingles': 'human', 'portugues':'humano'},
+  { ingles: "effect", portugues: "efeito" },
 
-{'ingles': 'history', 'portugues':'história'},
+  { ingles: "electric", portugues: "elétrico" },
 
-{'ingles': 'effect', 'portugues':'efeito'},
+  { ingles: "expect", portugues: "esperar" },
 
-{'ingles': 'electric', 'portugues':'elétrico'},
+  { ingles: "crop", portugues: "colheita" },
 
-{'ingles': 'expect', 'portugues':'esperar'},
+  { ingles: "modern", portugues: "moderno" },
 
-{'ingles': 'crop', 'portugues':'colheita'},
+  { ingles: "element", portugues: "elemento" },
 
-{'ingles': 'modern', 'portugues':'moderno'},
+  { ingles: "hit", portugues: "acertar" },
 
-{'ingles': 'element', 'portugues':'elemento'},
+  { ingles: "student", portugues: "estudante" },
 
-{'ingles': 'hit', 'portugues':'acertar'},
+  { ingles: "corner", portugues: "esquina" },
 
-{'ingles': 'student', 'portugues':'estudante'},
+  { ingles: "party", portugues: "partido, festa" },
 
-{'ingles': 'corner', 'portugues':'esquina'},
+  { ingles: "supply", portugues: "suprir" },
 
-{'ingles': 'party', 'portugues':'partido, festa'},
+  { ingles: "bone", portugues: "osso" },
 
-{'ingles': 'supply', 'portugues':'suprir'},
+  { ingles: "rail", portugues: "grade, trilho" },
 
-{'ingles': 'bone', 'portugues':'osso'},
+  { ingles: "imagine", portugues: "imaginar" },
 
-{'ingles': 'rail', 'portugues':'grade, trilho'},
+  { ingles: "provide", portugues: "fornecer" },
 
-{'ingles': 'imagine', 'portugues':'imaginar'},
+  { ingles: "agree", portugues: "concordar" },
 
-{'ingles': 'provide', 'portugues':'fornecer'},
+  { ingles: "thus", portugues: "assim" },
 
-{'ingles': 'agree', 'portugues':'concordar'},
+  { ingles: "capital", portugues: "capital" },
 
-{'ingles': 'thus', 'portugues':'assim'},
+  { ingles: "chair", portugues: "cadeira" },
 
-{'ingles': 'capital', 'portugues':'capital'},
+  { ingles: "danger", portugues: "perigo" },
 
+  { ingles: "fruit", portugues: "fruta" },
 
+  { ingles: "rich", portugues: "rico" },
 
-{'ingles': 'chair', 'portugues':'cadeira'},
+  { ingles: "thick", portugues: "grosso" },
 
-{'ingles': 'danger', 'portugues':'perigo'},
+  { ingles: "soldier", portugues: "soldado" },
 
-{'ingles': 'fruit', 'portugues':'fruta'},
+  { ingles: "process", portugues: "processo" },
 
-{'ingles': 'rich', 'portugues':'rico'},
+  { ingles: "operate", portugues: "operar" },
 
-{'ingles': 'thick', 'portugues':'grosso'},
+  { ingles: "guess", portugues: "adivinhar" },
 
-{'ingles': 'soldier', 'portugues':'soldado'},
+  { ingles: "necessary", portugues: "necessário" },
 
-{'ingles': 'process', 'portugues':'processo'},
+  { ingles: "sharp", portugues: "agudo, sustenido" },
 
-{'ingles': 'operate', 'portugues':'operar'},
+  { ingles: "wing", portugues: "asa" },
 
-{'ingles': 'guess', 'portugues':'adivinhar'},
+  { ingles: "create", portugues: "criar" },
 
-{'ingles': 'necessary', 'portugues':'necessário'},
+  { ingles: "neighbor", portugues: "vizinho" },
 
-{'ingles': 'sharp', 'portugues':'agudo, sustenido'},
+  { ingles: "wash", portugues: "lavar" },
 
-{'ingles': 'wing', 'portugues':'asa'},
+  { ingles: "bat", portugues: "morcego, bastão" },
 
-{'ingles': 'create', 'portugues':'criar'},
+  { ingles: "rather", portugues: "em-vez-de" },
 
-{'ingles': 'neighbor', 'portugues':'vizinho'},
+  { ingles: "crowd", portugues: "multidão" },
 
-{'ingles': 'wash', 'portugues':'lavar'},
+  { ingles: "corn", portugues: "milho" },
 
-{'ingles': 'bat', 'portugues':'morcego, bastão'},
+  { ingles: "compare", portugues: "comparar" },
 
-{'ingles': 'rather', 'portugues':'em-vez-de'},
+  { ingles: "poem", portugues: "poema" },
 
-{'ingles': 'crowd', 'portugues':'multidão'},
+  { ingles: "string", portugues: "corda" },
 
-{'ingles': 'corn', 'portugues':'milho'},
+  { ingles: "bell", portugues: "sino" },
 
-{'ingles': 'compare', 'portugues':'comparar'},
+  { ingles: "depend", portugues: "depender" },
 
-{'ingles': 'poem', 'portugues':'poema'},
+  { ingles: "meat", portugues: "carne" },
 
-{'ingles': 'string', 'portugues':'corda'},
+  { ingles: "rub", portugues: "esfregar" },
 
-{'ingles': 'bell', 'portugues':'sino'},
+  { ingles: "tube", portugues: "tubo, tv" },
 
-{'ingles': 'depend', 'portugues':'depender'},
+  { ingles: "famous", portugues: "famoso" },
 
-{'ingles': 'meat', 'portugues':'carne'},
+  { ingles: "stream", portugues: "corrente" },
 
-{'ingles': 'rub', 'portugues':'esfregar'},
+  { ingles: "fear", portugues: "medo, temer" },
 
-{'ingles': 'tube', 'portugues':'tubo, tv'},
+  { ingles: "thin", portugues: "fino, magro" },
 
-{'ingles': 'famous', 'portugues':'famoso'},
+  { ingles: "triangle", portugues: "triângulo" },
 
-{'ingles': 'stream', 'portugues':'corrente'},
+  { ingles: "planet", portugues: "planeta" },
 
-{'ingles': 'fear', 'portugues':'medo, temer'},
+  { ingles: "hurry", portugues: "pressa" },
 
-{'ingles': 'thin', 'portugues':'fino, magro'},
+  { ingles: "chief", portugues: "chefe" },
 
-{'ingles': 'triangle', 'portugues':'triângulo'},
+  { ingles: "clock", portugues: "relógio" },
 
-{'ingles': 'planet', 'portugues':'planeta'},
+  { ingles: "mine", portugues: "meu, mina" },
 
-{'ingles': 'hurry', 'portugues':'pressa'},
+  { ingles: "tie", portugues: "amarrar" },
 
-{'ingles': 'chief', 'portugues':'chefe'},
+  { ingles: "enter", portugues: "entrar" },
 
-{'ingles': 'clock', 'portugues':'relógio'},
+  { ingles: "major", portugues: "maior, major" },
 
-{'ingles': 'mine', 'portugues':'meu, mina'},
+  { ingles: "fresh", portugues: "fresco" },
 
-{'ingles': 'tie', 'portugues':'amarrar'},
+  { ingles: "search", portugues: "buscar" },
 
-{'ingles': 'enter', 'portugues':'entrar'},
+  { ingles: "send", portugues: "enviar" },
 
-{'ingles': 'major', 'portugues':'maior, major'},
+  { ingles: "yellow", portugues: "amarelo" },
 
-{'ingles': 'fresh', 'portugues':'fresco'},
+  { ingles: "gun", portugues: "arma" },
 
-{'ingles': 'search', 'portugues':'buscar'},
+  { ingles: "rose", portugues: "rosa" },
 
-{'ingles': 'send', 'portugues':'enviar'},
+  { ingles: "allow", portugues: "permitir" },
 
-{'ingles': 'yellow', 'portugues':'amarelo'},
+  { ingles: "print", portugues: "imprimir" },
 
-{'ingles': 'gun', 'portugues':'arma'},
+  { ingles: "dead", portugues: "morto" },
 
-{'ingles': 'rose', 'portugues':'rosa'},
+  { ingles: "spot", portugues: "ponto" },
 
-{'ingles': 'allow', 'portugues':'permitir'},
+  { ingles: "desert", portugues: "deserto" },
 
-{'ingles': 'print', 'portugues':'imprimir'},
+  { ingles: "suit", portugues: "terno" },
 
-{'ingles': 'dead', 'portugues':'morto'},
+  { ingles: "current", portugues: "atual" },
 
-{'ingles': 'spot', 'portugues':'ponto'},
+  { ingles: "lift", portugues: "levantar" },
 
-{'ingles': 'desert', 'portugues':'deserto'},
+  { ingles: "continue", portugues: "continuar" },
 
-{'ingles': 'suit', 'portugues':'terno'},
+  { ingles: "block", portugues: "bloco" },
 
-{'ingles': 'current', 'portugues':'atual'},
+  { ingles: "chart", portugues: "gráfico" },
 
-{'ingles': 'lift', 'portugues':'levantar'},
+  { ingles: "hat", portugues: "chapéu" },
 
-{'ingles': 'continue', 'portugues':'continuar'},
+  { ingles: "sell", portugues: "vender" },
 
-{'ingles': 'block', 'portugues':'bloco'},
+  { ingles: "success", portugues: "sucesso" },
 
-{'ingles': 'chart', 'portugues':'gráfico'},
+  { ingles: "company", portugues: "companhia, empresa" },
 
-{'ingles': 'hat', 'portugues':'chapéu'},
+  { ingles: "subtract", portugues: "subtrair" },
 
-{'ingles': 'sell', 'portugues':'vender'},
+  { ingles: "event", portugues: "evento" },
 
-{'ingles': 'success', 'portugues':'sucesso'},
+  { ingles: "particular", portugues: "especial" },
 
-{'ingles': 'company', 'portugues':'companhia, empresa'},
+  { ingles: "deal", portugues: "negócio" },
 
-{'ingles': 'subtract', 'portugues':'subtrair'},
+  { ingles: "term", portugues: "termo, período" },
 
-{'ingles': 'event', 'portugues':'evento'},
+  { ingles: "opposite", portugues: "oposto" },
 
-{'ingles': 'particular', 'portugues':'especial'},
+  { ingles: "wife", portugues: "esposa" },
 
-{'ingles': 'deal', 'portugues':'negócio'},
+  { ingles: "shoe", portugues: "sapato" },
 
-{'ingles': 'term', 'portugues':'termo, período'},
+  { ingles: "shoulder", portugues: "ombro" },
 
-{'ingles': 'opposite', 'portugues':'oposto'},
+  { ingles: "spread", portugues: "espalhar" },
 
-{'ingles': 'wife', 'portugues':'esposa'},
+  { ingles: "arrange", portugues: "arranjar" },
 
-{'ingles': 'shoe', 'portugues':'sapato'},
+  { ingles: "camp", portugues: "campo" },
 
-{'ingles': 'shoulder', 'portugues':'ombro'},
+  { ingles: "invent", portugues: "inventar" },
 
-{'ingles': 'spread', 'portugues':'espalhar'},
+  { ingles: "cotton", portugues: "algodão" },
 
-{'ingles': 'arrange', 'portugues':'arranjar'},
+  { ingles: "born", portugues: "nascido" },
 
-{'ingles': 'camp', 'portugues':'campo'},
+  { ingles: "determine", portugues: "determinar" },
 
-{'ingles': 'invent', 'portugues':'inventar'},
+  { ingles: "quart", portugues: "quarto" },
 
-{'ingles': 'cotton', 'portugues':'algodão'},
+  { ingles: "nine", portugues: "nove" },
 
-{'ingles': 'born', 'portugues':'nascido'},
+  { ingles: "truck", portugues: "caminhão" },
 
-{'ingles': 'determine', 'portugues':'determinar'},
+  { ingles: "noise", portugues: "barulho" },
 
-{'ingles': 'quart', 'portugues':'quarto'},
+  { ingles: "level", portugues: "nível" },
 
-{'ingles': 'nine', 'portugues':'nove'},
+  { ingles: "chance", portugues: "chance" },
 
-{'ingles': 'truck', 'portugues':'caminhão'},
+  { ingles: "gather", portugues: "juntar" },
 
-{'ingles': 'noise', 'portugues':'barulho'},
+  { ingles: "shop", portugues: "loja" },
 
-{'ingles': 'level', 'portugues':'nível'},
+  { ingles: "stretch", portugues: "alcance" },
 
-{'ingles': 'chance', 'portugues':'chance'},
+  { ingles: "throw", portugues: "arremessar" },
 
-{'ingles': 'gather', 'portugues':'juntar'},
+  { ingles: "shine", portugues: "brilhar" },
 
-{'ingles': 'shop', 'portugues':'loja'},
+  { ingles: "property", portugues: "propriedade" },
 
-{'ingles': 'stretch', 'portugues':'alcance'},
+  { ingles: "column", portugues: "coluna" },
 
-{'ingles': 'throw', 'portugues':'arremessar'},
+  { ingles: "molecule", portugues: "molécula" },
 
-{'ingles': 'shine', 'portugues':'brilhar'},
+  { ingles: "select", portugues: "selecionar" },
 
-{'ingles': 'property', 'portugues':'propriedade'},
+  { ingles: "wrong", portugues: "errado" },
 
-{'ingles': 'column', 'portugues':'coluna'},
+  { ingles: "gray", portugues: "cinza" },
 
-{'ingles': 'molecule', 'portugues':'molécula'},
+  { ingles: "repeat", portugues: "repetir" },
 
-{'ingles': 'select', 'portugues':'selecionar'},
+  { ingles: "require", portugues: "exigir" },
 
-{'ingles': 'wrong', 'portugues':'errado'},
+  { ingles: "broad", portugues: "amplo" },
 
-{'ingles': 'gray', 'portugues':'cinza'},
+  { ingles: "prepare", portugues: "preparar" },
 
-{'ingles': 'repeat', 'portugues':'repetir'},
+  { ingles: "salt", portugues: "sal" },
 
-{'ingles': 'require', 'portugues':'exigir'},
+  { ingles: "nose", portugues: "nariz" },
 
-{'ingles': 'broad', 'portugues':'amplo'},
+  { ingles: "plural", portugues: "plural" },
 
-{'ingles': 'prepare', 'portugues':'preparar'},
+  { ingles: "anger", portugues: "raiva" },
 
-{'ingles': 'salt', 'portugues':'sal'},
+  { ingles: "claim", portugues: "clamar" },
 
-{'ingles': 'nose', 'portugues':'nariz'},
+  { ingles: "continent", portugues: "continente" },
 
-{'ingles': 'plural', 'portugues':'plural'},
+  { ingles: "oxygen", portugues: "oxigênio" },
 
-{'ingles': 'anger', 'portugues':'raiva'},
+  { ingles: "sugar", portugues: "açúcar" },
 
-{'ingles': 'claim', 'portugues':'clamar'},
+  { ingles: "death", portugues: "morte" },
 
-{'ingles': 'continent', 'portugues':'continente'},
+  { ingles: "pretty", portugues: "belo, muito" },
 
-{'ingles': 'oxygen', 'portugues':'oxigênio'},
+  { ingles: "skill", portugues: "habilidade" },
 
-{'ingles': 'sugar', 'portugues':'açúcar'},
+  { ingles: "women", portugues: "mulheres" },
 
-{'ingles': 'death', 'portugues':'morte'},
+  { ingles: "season", portugues: "estação" },
 
-{'ingles': 'pretty', 'portugues':'belo, muito'},
+  { ingles: "solution", portugues: "solução" },
 
-{'ingles': 'skill', 'portugues':'habilidade'},
+  { ingles: "magnet", portugues: "imã" },
 
-{'ingles': 'women', 'portugues':'mulheres'},
+  { ingles: "silver", portugues: "prata" },
 
-{'ingles': 'season', 'portugues':'estação'},
+  { ingles: "thank", portugues: "agradecer" },
 
-{'ingles': 'solution', 'portugues':'solução'},
+  { ingles: "branch", portugues: "galho" },
 
-{'ingles': 'magnet', 'portugues':'imã'},
+  { ingles: "match", portugues: "competição" },
 
-{'ingles': 'silver', 'portugues':'prata'},
+  { ingles: "suffix", portugues: "sufixo" },
 
-{'ingles': 'thank', 'portugues':'agradecer'},
+  { ingles: "especially", portugues: "especialmente" },
 
-{'ingles': 'branch', 'portugues':'galho'},
+  { ingles: "fig", portugues: "figo" },
 
-{'ingles': 'match', 'portugues':'competição'},
+  { ingles: "afraid", portugues: "com-medo" },
 
-{'ingles': 'suffix', 'portugues':'sufixo'},
+  { ingles: "huge", portugues: "grande, enorme" },
 
-{'ingles': 'especially', 'portugues':'especialmente'},
+  { ingles: "sister", portugues: "irmã" },
 
-{'ingles': 'fig', 'portugues':'figo'},
+  { ingles: "steel", portugues: "aço" },
 
-{'ingles': 'afraid', 'portugues':'com-medo'},
+  { ingles: "discuss", portugues: "discutir" },
 
-{'ingles': 'huge', 'portugues':'grande, enorme'},
+  { ingles: "dollar", portugues: "dólar" },
 
-{'ingles': 'sister', 'portugues':'irmã'},
+  { ingles: "forward", portugues: "adiante" },
 
-{'ingles': 'steel', 'portugues':'aço'},
+  { ingles: "similar", portugues: "semelhante" },
 
-{'ingles': 'discuss', 'portugues':'discutir'},
+  { ingles: "guide", portugues: "guia, guiar" },
 
-{'ingles': 'dollar', 'portugues':'dólar'},
+  { ingles: "experience", portugues: "experiência" },
 
-{'ingles': 'forward', 'portugues':'adiante'},
+  { ingles: "score", portugues: "placar" },
 
-{'ingles': 'similar', 'portugues':'semelhante'},
+  { ingles: "apple", portugues: "maçã" },
 
-{'ingles': 'guide', 'portugues':'guia, guiar'},
+  { ingles: "bought", portugues: "comprado" },
 
-{'ingles': 'experience', 'portugues':'experiência'},
+  { ingles: "led", portugues: "levado" },
 
-{'ingles': 'score', 'portugues':'placar'},
+  { ingles: "colony", portugues: "colonia" },
 
-{'ingles': 'apple', 'portugues':'maçã'},
+  { ingles: "pitch", portugues: "piche, arremeço" },
 
-{'ingles': 'bought', 'portugues':'comprado'},
+  { ingles: "coat", portugues: "casaco" },
 
-{'ingles': 'led', 'portugues':'levado'},
+  { ingles: "mass", portugues: "massa, missa" },
 
-{'ingles': 'colony', 'portugues':'colonia'},
+  { ingles: "card", portugues: "cartão" },
 
-{'ingles': 'pitch', 'portugues':'piche, arremeço'},
+  { ingles: "band", portugues: "banda" },
 
-{'ingles': 'coat', 'portugues':'casaco'},
+  { ingles: "rope", portugues: "corda" },
 
-{'ingles': 'mass', 'portugues':'massa, missa'},
+  { ingles: "slip", portugues: "escorregar" },
 
-{'ingles': 'card', 'portugues':'cartão'},
+  { ingles: "win", portugues: "ganhar" },
 
-{'ingles': 'band', 'portugues':'banda'},
+  { ingles: "dream", portugues: "sonho" },
 
-{'ingles': 'rope', 'portugues':'corda'},
+  { ingles: "evening", portugues: "noite" },
 
-{'ingles': 'slip', 'portugues':'escorregar'},
+  { ingles: "condition", portugues: "condição" },
 
-{'ingles': 'win', 'portugues':'ganhar'},
+  { ingles: "feed", portugues: "alimentar" },
 
-{'ingles': 'dream', 'portugues':'sonho'},
+  { ingles: "tool", portugues: "ferramenta" },
 
-{'ingles': 'evening', 'portugues':'noite'},
+  { ingles: "total", portugues: "total" },
 
-{'ingles': 'condition', 'portugues':'condição'},
+  { ingles: "basic", portugues: "básico" },
 
-{'ingles': 'feed', 'portugues':'alimentar'},
+  { ingles: "smell", portugues: "cheiro" },
 
-{'ingles': 'tool', 'portugues':'ferramenta'},
+  { ingles: "valley", portugues: "vale" },
 
-{'ingles': 'total', 'portugues':'total'},
+  { ingles: "nor", portugues: "nem" },
 
-{'ingles': 'basic', 'portugues':'básico'},
+  { ingles: "double", portugues: "dobro" },
 
-{'ingles': 'smell', 'portugues':'cheiro'},
+  { ingles: "seat", portugues: "assento" },
 
-{'ingles': 'valley', 'portugues':'vale'},
+  { ingles: "arrive", portugues: "chegar" },
 
-{'ingles': 'nor', 'portugues':'nem'},
+  { ingles: "master", portugues: "mestre" },
 
-{'ingles': 'double', 'portugues':'dobro'},
+  { ingles: "track", portugues: "trilha" },
 
-{'ingles': 'seat', 'portugues':'assento'},
+  { ingles: "parent", portugues: "pais" },
 
-{'ingles': 'arrive', 'portugues':'chegar'},
+  { ingles: "shore", portugues: "praia" },
 
-{'ingles': 'master', 'portugues':'mestre'},
+  { ingles: "division", portugues: "divisão" },
 
-{'ingles': 'track', 'portugues':'trilha'},
+  { ingles: "sheet", portugues: "folha, lençol" },
 
-{'ingles': 'parent', 'portugues':'pais'},
+  { ingles: "substance", portugues: "substância" },
 
-{'ingles': 'shore', 'portugues':'praia'},
+  { ingles: "favor", portugues: "favor, favorecer" },
 
-{'ingles': 'division', 'portugues':'divisão'},
+  { ingles: "connect", portugues: "conectar" },
 
-{'ingles': 'sheet', 'portugues':'folha, lençol'},
+  { ingles: "post", portugues: "pós, posto" },
 
-{'ingles': 'substance', 'portugues':'substância'},
+  { ingles: "spend", portugues: "gastar" },
 
-{'ingles': 'favor', 'portugues':'favor, favorecer'},
+  { ingles: "swim", portugues: "nadar" },
 
-{'ingles': 'connect', 'portugues':'conectar'},
+  { ingles: "chord", portugues: "acorde" },
 
-{'ingles': 'post', 'portugues':'pós, posto'},
+  { ingles: "fat", portugues: "gordo" },
 
-{'ingles': 'spend', 'portugues':'gastar'},
+  { ingles: "glad", portugues: "contente" },
 
-{'ingles': 'swim', 'portugues':'nadar'},
+  { ingles: "original", portugues: "original" },
 
-{'ingles': 'chord', 'portugues':'acorde'},
+  { ingles: "share", portugues: "parte" },
 
-{'ingles': 'fat', 'portugues':'gordo'},
+  { ingles: "station", portugues: "estação" },
 
-{'ingles': 'glad', 'portugues':'contente'},
+  { ingles: "dad", portugues: "papai" },
 
-{'ingles': 'original', 'portugues':'original'},
+  { ingles: "bread", portugues: "pão" },
 
-{'ingles': 'share', 'portugues':'parte'},
+  { ingles: "charge", portugues: "carga, cobrança" },
 
-{'ingles': 'station', 'portugues':'estação'},
+  { ingles: "proper", portugues: "próprio" },
 
-{'ingles': 'dad', 'portugues':'papai'},
+  { ingles: "bar", portugues: "bar, barra" },
 
-{'ingles': 'bread', 'portugues':'pão'},
+  { ingles: "offer", portugues: "oferecer" },
 
-{'ingles': 'charge', 'portugues':'carga, cobrança'},
+  { ingles: "segment", portugues: "segmento" },
 
-{'ingles': 'proper', 'portugues':'próprio'},
+  { ingles: "slave", portugues: "escravo" },
 
-{'ingles': 'bar', 'portugues':'bar, barra'},
+  { ingles: "duck", portugues: "pato, mergulhar" },
 
-{'ingles': 'offer', 'portugues':'oferecer'},
+  { ingles: "instant", portugues: "instante" },
 
-{'ingles': 'segment', 'portugues':'segmento'},
+  { ingles: "market", portugues: "mercado" },
 
-{'ingles': 'slave', 'portugues':'escravo'},
+  { ingles: "degree", portugues: "grau" },
 
-{'ingles': 'duck', 'portugues':'pato, mergulhar'},
+  { ingles: "populate", portugues: "povoar" },
 
-{'ingles': 'instant', 'portugues':'instante'},
+  { ingles: "chick", portugues: "pintinho" },
 
-{'ingles': 'market', 'portugues':'mercado'},
+  { ingles: "dear", portugues: "querido" },
 
-{'ingles': 'degree', 'portugues':'grau'},
+  { ingles: "enemy", portugues: "inimigo" },
 
-{'ingles': 'populate', 'portugues':'povoar'},
+  { ingles: "reply", portugues: "resposta" },
 
-{'ingles': 'chick', 'portugues':'pintinho'},
+  { ingles: "drink", portugues: "bebida" },
 
-{'ingles': 'dear', 'portugues':'querido'},
+  { ingles: "occur", portugues: "ocorrer" },
 
-{'ingles': 'enemy', 'portugues':'inimigo'},
+  { ingles: "support", portugues: "apoiar" },
 
-{'ingles': 'reply', 'portugues':'resposta'},
+  { ingles: "speech", portugues: "discurso" },
 
-{'ingles': 'drink', 'portugues':'bebida'},
+  { ingles: "nature", portugues: "natureza" },
 
-{'ingles': 'occur', 'portugues':'ocorrer'},
+  { ingles: "range", portugues: "alcance" },
 
-{'ingles': 'support', 'portugues':'apoiar'},
+  { ingles: "steam", portugues: "vapor" },
 
-{'ingles': 'speech', 'portugues':'discurso'},
+  { ingles: "motion", portugues: "movimento" },
 
-{'ingles': 'nature', 'portugues':'natureza'},
+  { ingles: "path", portugues: "caminho" },
 
-{'ingles': 'range', 'portugues':'alcance'},
+  { ingles: "liquid", portugues: "líquido" },
 
-{'ingles': 'steam', 'portugues':'vapor'},
+  { ingles: "log", portugues: "registro" },
 
-{'ingles': 'motion', 'portugues':'movimento'},
+  { ingles: "meant", portugues: "significado" },
 
-{'ingles': 'path', 'portugues':'caminho'},
+  { ingles: "quotient", portugues: "quociente" },
 
-{'ingles': 'liquid', 'portugues':'líquido'},
+  { ingles: "teeth", portugues: "dentes" },
 
-{'ingles': 'log', 'portugues':'registro'},
+  { ingles: "shell", portugues: "concha" },
 
-{'ingles': 'meant', 'portugues':'significado'},
+  { ingles: "neck", portugues: "pescoço" },
 
-{'ingles': 'quotient', 'portugues':'quociente'},
+  { ingles: "dessert", portugues: "sobremesa" },
+];
+const pergunta = document.querySelector(".pergunta");
+const palavrasQueJaForamUsadas = [];
+let resposta = document.querySelector("#resposta");
+const btnDireita = document.querySelector(".btnDireita");
+const btnEsquerda = document.querySelector(".btnEsquerda");
+let placar = 0;
+let palavraSorteada;
+const musicaAcertou = document.querySelector("#musicaAcertou");
+const musicaErrou = document.querySelector("#musicaErrou");
+const musicaBtn = document.querySelector("#musicaBtn");
+const caixaDoPlacar = document.querySelector(".caixaPlacar");
+const cxResposta = document.querySelector(".cxResposta");
+let acertos = 0;
+let erros = 0;
 
-{'ingles': 'teeth', 'portugues':'dentes'},
+criaGradeDeElementos();
 
-{'ingles': 'shell', 'portugues':'concha'},
-
-{'ingles': 'neck', 'portugues':'pescoço'},
-
-{'ingles': 'dessert', 'portugues':'sobremesa'}]
-const pergunta = document.querySelector('.pergunta')
-const palavrasQueJaForamUsadas = []
-let resposta = document.querySelector('#resposta')
-const btnDireita = document.querySelector('.btnDireita')
-const btnEsquerda = document.querySelector('.btnEsquerda')
-let placar = 0
-let palavraSorteada
-const musicaAcertou = document.querySelector('#musicaAcertou')
-const musicaErrou = document.querySelector('#musicaErrou')
-const musicaBtn = document.querySelector('#musicaBtn')
-const caixaDoPlacar = document.querySelector('.caixaPlacar')
-const cxResposta = document.querySelector('.cxResposta')
-let acertos = 0
-let erros = 0
-
-criaGradeDeElementos()
-
-
-gradeElementos.forEach(el => el.addEventListener("click",  selecionaElemento))
-btnEsquerda.addEventListener('click', moverParaEsquerda)
-btnDireita.addEventListener('click', moverParaDireita)
-
-
-
+gradeElementos.forEach((el) => el.addEventListener("click", selecionaElemento));
+btnEsquerda.addEventListener("click", moverParaEsquerda);
+btnDireita.addEventListener("click", moverParaDireita);
 
 function criaGradeDeElementos() {
-    for (let i = 1; i <= 1000; i++) {
-        const elemento = document.createElement("div")
-        elemento.classList.add("elemento")
-        elemento.id = "elemento" + i
-        const img = document.createElement("img")
-        img.src = "img/interrogacao.png"
-        elemento.appendChild(img)
-        tabuleiro.appendChild(elemento)
-        gradeElementos.push(elemento)
-    }
+  for (let i = 1; i <= 1000; i++) {
+    const elemento = document.createElement("div");
+    elemento.classList.add("elemento");
+    elemento.id = "elemento" + i;
+    const img = document.createElement("img");
+    img.src = "img/interrogacao.png";
+    elemento.appendChild(img);
+    tabuleiro.appendChild(elemento);
+    gradeElementos.push(elemento);
+  }
 }
 
-let elementoSelecionado = false
+let elementoSelecionado = false;
 
-function selecionaElemento(event){
-    if (elementoSelecionado)return
-    cxResposta.innerHTML = ''
-    const elementoQuadrado =  event.target
-    if(elementoQuadrado.classList.contains('elementoSelecionado'))  return
-    if(elementoQuadrado.classList.contains('acertou')||elementoQuadrado.classList.contains('errou')){
-        return
+function selecionaElemento(event) {
+  if (elementoSelecionado) return;
+  cxResposta.innerHTML = "";
+  const elementoQuadrado = event.target;
+  if (elementoQuadrado.classList.contains("elementoSelecionado")) return;
+  if (
+    elementoQuadrado.classList.contains("acertou") ||
+    elementoQuadrado.classList.contains("errou")
+  ) {
+    return;
+  }
+  elementoQuadrado.classList.add("elementoSelecionado");
+  elementoSelecionado = true;
+
+  sorteiaPalavras();
+
+  criaAlternativasDeResposta();
+
+  function criaAlternativasDeResposta() {
+    const alternativaCorreta = palavraSorteada;
+    let removeAlternativaCorreta = palavrasEmIngles.filter(
+      (a) => a !== palavraSorteada
+    );
+    let alternativasDePalavras = [alternativaCorreta];
+    for (let i = 0; i < 3; i++) {
+      let randomIndice = Math.floor(
+        Math.random() * removeAlternativaCorreta.length
+      );
+      alternativasDePalavras.push(removeAlternativaCorreta[randomIndice]);
     }
-    elementoQuadrado.classList.add('elementoSelecionado')
-    elementoSelecionado = true
-    
-    sorteiaPalavras()
-    
-    criaAlternativasDeResposta()
+    let embaralhaAlternativas = alternativasDePalavras.sort(
+      () => Math.random() - 0.5
+    );
 
-    function criaAlternativasDeResposta(){
-        const alternativaCorreta = palavraSorteada
-        let removeAlternativaCorreta = palavrasEmIngles.filter(a => a !== palavraSorteada)
-        let alternativasDePalavras = [alternativaCorreta]
-            for(let i = 0; i<3; i++){
-                let randomIndice = Math.floor(Math.random()*removeAlternativaCorreta.length)
-                alternativasDePalavras.push(removeAlternativaCorreta[randomIndice])
-            }
-            let embaralhaAlternativas = alternativasDePalavras.sort(() => Math.random()-0.5)
-            
-            embaralhaAlternativas.forEach(alternativa => { const respostaAlternativa = document.createElement('div')
-            respostaAlternativa.innerHTML = alternativa.portugues
-            respostaAlternativa.classList.add('alternativa')
-            cxResposta.appendChild(respostaAlternativa)
-    
-            cxResposta.addEventListener('click', function(event) {
-                if (event.target && event.target.matches('.alternativa')) {
-                respostaCorreta(event.target)
-                respostaErrada(event.target)
-                }
-            
-            })
-            
-            function respostaCorreta(alternativaClicada){
-                if(elementoQuadrado.classList.contains('acertou'))return
-                if(elementoQuadrado.classList.contains('errou'))return
-                if(alternativaClicada.textContent === palavraSorteada.portugues){
-                    elementoQuadrado.classList.add('acertou')
-                    pergunta.innerHTML ='PARABÉNS!<br>	&#128516;&#128077;'
-                    elementoSelecionado = false
-                    acertos += 1
-                    marcaPonto()
-                    
-                    barraDeProgresso(acertos, erros)
-                }
-                
-            }
+    embaralhaAlternativas.forEach((alternativa) => {
+      const respostaAlternativa = document.createElement("div");
+      respostaAlternativa.innerHTML = alternativa.portugues;
+      respostaAlternativa.classList.add("alternativa");
+      cxResposta.appendChild(respostaAlternativa);
 
-            function respostaErrada(alternativaClicada){
-                if(elementoQuadrado.classList.contains('acertou'))return
-                if(elementoQuadrado.classList.contains('errou'))return
-                if(alternativaClicada.textContent !== palavraSorteada.portugues){
-                    elementoQuadrado.classList.add('errou')
-                    pergunta.innerHTML = ` ERROU! &#128553; <br>RESPOSTA: ${palavraSorteada.portugues}`
-                    musicaErrou.volume = 0.2
-                    musicaErrou.play()
-                    elementoSelecionado = false
-                    erros += 1
-                    
-                    barraDeProgresso(acertos, erros)
-                }
-            }
-        })
-        
-    }
-    
-    function marcaPonto(){
-        
-        placar = acertos
-        document.querySelector('.placar').textContent = placar
-        musicaAcertou.volume = 0.5
-        musicaAcertou.play()
-        caixaDoPlacar.classList.add('animaPlacar')
-            setTimeout(function(){
-                caixaDoPlacar.classList.remove('animaPlacar')
-                }, 1000);
-                
-    }
-    
-}  
+      cxResposta.addEventListener("click", function (event) {
+        if (event.target && event.target.matches(".alternativa")) {
+          respostaCorreta(event.target);
+          respostaErrada(event.target);
+        }
+      });
 
+      function respostaCorreta(alternativaClicada) {
+        if (elementoQuadrado.classList.contains("acertou")) return;
+        if (elementoQuadrado.classList.contains("errou")) return;
+        if (alternativaClicada.textContent === palavraSorteada.portugues) {
+          elementoQuadrado.classList.add("acertou");
+          pergunta.innerHTML = "PARABÉNS!<br>	&#128516;&#128077;";
+          elementoSelecionado = false;
+          acertos += 1;
+          marcaPonto();
 
+          barraDeProgresso(acertos, erros);
+        }
+      }
+
+      function respostaErrada(alternativaClicada) {
+        if (elementoQuadrado.classList.contains("acertou")) return;
+        if (elementoQuadrado.classList.contains("errou")) return;
+        if (alternativaClicada.textContent !== palavraSorteada.portugues) {
+          elementoQuadrado.classList.add("errou");
+          pergunta.innerHTML = ` ERROU! &#128553; <br>RESPOSTA: ${palavraSorteada.portugues}`;
+          musicaErrou.volume = 0.2;
+          musicaErrou.play();
+          elementoSelecionado = false;
+          erros += 1;
+
+          barraDeProgresso(acertos, erros);
+        }
+      }
+    });
+  }
+
+  function marcaPonto() {
+    placar = acertos;
+    document.querySelector(".placar").textContent = placar;
+    musicaAcertou.volume = 0.5;
+    musicaAcertou.play();
+    caixaDoPlacar.classList.add("animaPlacar");
+    setTimeout(function () {
+      caixaDoPlacar.classList.remove("animaPlacar");
+    }, 1000);
+  }
+}
 
 function sorteiaPalavras() {
-    if(palavrasEmIngles.length === 0){
-        pergunta.innerHTML = "Todas as palavras foram usadas!"
-        return
+  if (palavrasEmIngles.length === 0) {
+    pergunta.innerHTML = "Todas as palavras foram usadas!";
+    return;
+  }
+
+  palavraSorteada =
+    palavrasEmIngles[Math.floor(Math.random() * palavrasEmIngles.length)];
+
+  pergunta.innerHTML = palavraSorteada.ingles;
+
+  palavrasQueJaForamUsadas.push(palavraSorteada);
+  let numeroIndex = palavrasEmIngles.indexOf(palavraSorteada);
+  palavrasEmIngles.splice(numeroIndex, 1);
 }
 
-    palavraSorteada = palavrasEmIngles[Math.floor(Math.random() * palavrasEmIngles.length)]
-    
+let idIntervalo;
 
-    pergunta.innerHTML = palavraSorteada.ingles
-    
-    palavrasQueJaForamUsadas.push(palavraSorteada)
-    let numeroIndex = palavrasEmIngles.indexOf(palavraSorteada)
-    palavrasEmIngles.splice(numeroIndex, 1)
-
-}
-
-
-
-
-
-let idIntervalo
-
-
-function moverParaDireita(){
-    if(tabuleiro.scrollLeft + 150 >= 51800)return
-        //51800 é o valor da largura do scrollbar
-        let posicaoAtual = tabuleiro.scrollLeft
-        let novaPosicao = posicaoAtual + 150
-        idIntervalo = requestAnimationFrame(frame)
-    function frame(){
-        if(tabuleiro.scrollLeft >= novaPosicao) {
-            cancelAnimationFrame(idIntervalo)
-            return
-        }
-        tabuleiro.scrollTo(tabuleiro.scrollLeft + 5, 0)
-        idIntervalo = requestAnimationFrame(frame)
-        
+function moverParaDireita() {
+  if (tabuleiro.scrollLeft + 150 >= 51800) return;
+  //51800 é o valor da largura do scrollbar
+  let posicaoAtual = tabuleiro.scrollLeft;
+  let novaPosicao = posicaoAtual + 150;
+  idIntervalo = requestAnimationFrame(frame);
+  function frame() {
+    if (tabuleiro.scrollLeft >= novaPosicao) {
+      cancelAnimationFrame(idIntervalo);
+      return;
     }
-    musicaBtn.volume = 0.5
-    musicaBtn.play()
-    
+    tabuleiro.scrollTo(tabuleiro.scrollLeft + 5, 0);
+    idIntervalo = requestAnimationFrame(frame);
+  }
+  musicaBtn.volume = 0.5;
+  musicaBtn.play();
 }
 
-
-function moverParaEsquerda(){
-    if(tabuleiro.scrollLeft - 150 < 0) {
-        cancelAnimationFrame(idIntervalo)
-        return
+function moverParaEsquerda() {
+  if (tabuleiro.scrollLeft - 150 < 0) {
+    cancelAnimationFrame(idIntervalo);
+    return;
+  }
+  let posicaoAtual = tabuleiro.scrollLeft;
+  idIntervalo = requestAnimationFrame(frame);
+  function frame() {
+    let novaPosicao = posicaoAtual - 150;
+    if (tabuleiro.scrollLeft <= novaPosicao) {
+      cancelAnimationFrame(idIntervalo);
+      return;
     }
-    let posicaoAtual = tabuleiro.scrollLeft
-    idIntervalo = requestAnimationFrame(frame)
-    function frame(){
-        let novaPosicao = posicaoAtual - 150
-        if(tabuleiro.scrollLeft <= novaPosicao) {
-            cancelAnimationFrame(idIntervalo)
-            return
-        }
-        tabuleiro.scrollTo(tabuleiro.scrollLeft - 5, 0)
-        idIntervalo = requestAnimationFrame(frame)
-    }
-    musicaBtn.volume = 0.5
-    musicaBtn.play()
+    tabuleiro.scrollTo(tabuleiro.scrollLeft - 5, 0);
+    idIntervalo = requestAnimationFrame(frame);
+  }
+  musicaBtn.volume = 0.5;
+  musicaBtn.play();
 }
-
 
 function barraDeProgresso(acertos, erros) {
-    const red = document.querySelector(".red")
-    const green = document.querySelector(".green")
+  const red = document.querySelector(".red");
+  const green = document.querySelector(".green");
 
-    const tamanhoDaBarra = acertos + erros
-    const ladoVermelho = parseInt((erros * 100)/tamanhoDaBarra)
-    const ladoVerde = parseInt((acertos *100)/tamanhoDaBarra)
+  const tamanhoDaBarra = acertos + erros;
+  const ladoVermelho = parseInt((erros * 100) / tamanhoDaBarra);
+  const ladoVerde = parseInt((acertos * 100) / tamanhoDaBarra);
 
-    red.innerHTML = `%${ladoVermelho}`
-    green.innerHTML = `%${ladoVerde}`
+  red.innerHTML = `%${ladoVermelho}`;
+  green.innerHTML = `%${ladoVerde}`;
 
-    red.style.height = `${ladoVermelho}%`
-    green.style.height = `${ladoVerde}%`
+  red.style.height = `${ladoVermelho}%`;
+  green.style.height = `${ladoVerde}%`;
 }

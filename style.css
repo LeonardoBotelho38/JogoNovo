@@ -10,11 +10,12 @@
     display: inline-block;
     position: absolute;
     
+    
 }
 .bolhas span{
     width: 4px;
     height: 4px;
-    margin: 0 4px;
+    margin: 0 10px;
     background-color: rgb(243, 180, 180);
     border-radius: 50%;
     box-shadow: 0 0 0 10px #ff150044,
